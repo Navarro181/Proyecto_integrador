@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Valoracion1.1.css">
+</head>
+
+<body>
+    <fieldset class="caja_primaria">
+        <legend>Datos básicos del paciente</legend>
+        <fieldset class="caja_preguntas_respuestas">
+            <legend>Datos geográficos</legend>
+            <div><label for="lugar_de_atencion">Lugar de atención</label></div>
+            <div><input type="text" name="text" id="lugar_de_atencion" placeholder="Lugar del suceso"></div>
+            <div><label for="lugar_de_atencion">Lugar de atención</label></div>
+            <div><input type="text" name="text" id="lugar_de_atencion" placeholder="Localidad del suceso"></div>
+        </fieldset><!--Cierre de caja datos geograficos-->
+        <fieldset class="caja_preguntas_respuestas">
+            <legend>Datos personales</legend>
+            <div><label for="nombre_y_apellidos">Nombre y apellidos</label><input type="checkbox" id="niega_asistencia"><label for="niega_asistencia">Se niega a la asistencia</label>
+            </div>
+            <div><input type="text" id="nombre_y_apellidos" placeholder="Nombre y apellidos del paciente"></div>
+            <select name="list_box" id="documento_identificacion">
+                <option value="dni">DNI</option>
+                <option value="pasaporte">Pasaporte</option>
+                <option value="otro">Otro</option>
+                <option value="no">No dispone</option>
+            </select>
+            <div><input type="text" id="N_Documento" placeholder="Nº de identificación"></div>
+            <div><label for="telefono">Telefono</label></div>
+            <div><input type="text" id="telefono" placeholder="Nº de telefono"></div>
+            <div><label for="edad">Edad</label></div>
+            <div><input type="number" id="EDAD" placeholder=""></div>
+            <div><label for="domicilio">Domicilio</label></div>
+            <div><input type="text" id="domicilio" placeholder="Calle del domicilio"></div>
+            <div><label for="localidad_domicilio">Localidad del domicilio</label></div>
+            <div><input type="text" id="localidad_domicilio" placeholder="Localidad del domicilio"></div>
+            <div><label for="genero">Genero del paciente</label></div>
+            <select name="list_box" id="genero">
+                <option value="...">...</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
+            </select>
+        </fieldset><!--Cierre de caja datos personales-->
+
+        <fieldset class="caja_preguntas_respuestas">
+            <legend>Datos sanitarios</legend>
+            <div><label for="motivo_consulta">Motivo de consulta</label></div>
+            <div><input type="text" id="motivo_consulta" placeholder="¿Qué ha sucedido?"></div>
+            <div><label for="tiempo_evolución">Tiempo de evolución</label></div>
+            <select name="list_box" id="tiempo_evolución">
+                <option value="Una hora">Una hora</option>
+                <option value="dos horas">Dos horas</option>
+                <option value="tres horas">Tres horas</option>
+                <option value="cuatro horas">cuatro horas</option>
+                <option value="cinco horas">cinco horas</option>
+                <option value="seis o mas horas">Seis o más horas</option>
+            </select>
+            <div><label for="antecedentes_personales">Antecedentes personales</label>
+                <input type="checkbox" id="no_AP"><label for="no_AP">No refiere</label>
+            </div>
+            <div><input type="text" id="antecedentes_personales" placeholder="Patologías previas relevantes"></div>
+            <div><label for="alergias">Alergias</label>
+                <input type="checkbox" id="NRAMC"><label for="NRAMC">No RAMC</label>
+            </div>
+            <div><input type="text" id="alergias" placeholder="Alergias/introlerancias"></div>
+        </fieldset><!--Cierre de caja datos sanitarios-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de datos básicos del paciente-->
+
+    <!--Apertura caja A - Airway-->
+    <fieldset class="caja_primaria">
+        <legend>A - Airway | Vía aérea</legend>
+        <fieldset class="caja_secundaria">
+            <legend>¿El patrón se encuentra alterado?</legend>
+            <select name="list_box" id="A_alterado">
+                <option value="...">...</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset><!--Cierre de caja de patron alterado-->
+        <!--Apertura caja signos/sintomas-->
+        <fieldset class="caja_secundaria">
+            <legend>Signos y sintomas</legend>
+            <!--Apertura de caja de respuestas-->
+            <fieldset class="caja_respuesta_signos_sintomas">
+                <div>
+                    <input type="radio" name="A_R1" id="A_R11"><label for="A_R11">Si</label>
+                    <input type="radio" name="A_R1" id="A_R12"><label for="A_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="A_R2" id="A_R21"><label for="A_R21">Si</label>
+                    <input type="radio" name="A_R2" id="A_R22"><label for="A_R22">No</label>
+                </div>
+            </fieldset><!--Cierre de caja de respuestas-->
+
+            <fieldset class="caja_preguntas"><!--Apertura de caja de preguntas-->
+                <div><label for="">¿Precisa apertura de la vía aérea?</label></div>
+                <div><label for="">¿Sospecha de lesión cervical?</label></div>
+            </fieldset><!--Cierre de caja de preguntas-->
+        </fieldset><!--Cierre de caja signos/sintomas-->
+        <fieldset class="caja_tecnicas_realizadas">
+            <legend>Técnicas realizadas</legend>
+            <!--Apertura caja de tecnicas realizadas-->
+            <div><input type="checkbox" id="A_TR_1"><label for="A_TR_1">Dispositivo supraglótico</label>
+                <select name="list_box" id="B">
+                    <option value="...">...</option>
+                    <option value="Cánula orofaríngea">Cánula orofaríngea</option>
+                    <option value="Mascarilla laríngea">Mascarilla laríngea</option>
+                </select>
+                <input type="number" id="A_TR_2"><label for="A_TR_2">Número</label>
+            </div>
+            <div>
+                <input type="checkbox" id="A_TR_3"><label for="A_TR_3">Intubación orotraqueal</label>
+                <input type="number" id="A_TR_4"><label for="A_TR_4">Nº del tubo</label>
+                <input type="number" id="A_TR_5"><label for="A_TR_5">Comisura labial</label>
+            </div>
+            </div>
+            <div><input type="checkbox" id="A_TR_6"><label for="A_TR_6">Aspiración de secreciones</label></div>
+            <div><input type="checkbox" id="A_TR_7"><label for="A_TR_7">Extracción de cuerpo extraño</label></div>
+            <div><input type="checkbox" id="A_TR_8"><label for="A_TR_8">Inmovilización de la columna cervical</label>
+            </div>
+
+        </fieldset><!--Cierre de caja de tecnicas realizadas-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de  caja A - Airway-->
+
+
+
+    <!--Apertura caja B Breathing-->
+    <fieldset class="caja_primaria">
+        <legend>B - Breathing | Repiratorio</legend>
+        <fieldset class="caja_secundaria">
+            <legend>¿El patrón se encuentra alterado?</legend>
+            <select name="list_box" id="B">
+                <option value="...">...</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset><!--Cierre de caja de patron alterado-->
+        <!--Apertura caja signos/sintomas-->
+        <fieldset class="caja_secundaria">
+            <legend>Signos y sintomas</legend>
+            <!--Apertura de caja de respuestas-->
+            <fieldset class="caja_respuesta_signos_sintomas">
+                <div>
+                    <input type="radio" name="B_R1" id="B_R11"><label for="B_R11">Si</label>
+                    <input type="radio" name="B_R1" id="B_R12"><label for="B_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R2" id="B_R21"><label for="B_R21">Si</label>
+                    <input type="radio" name="B_R2" id="B_R22"><label for="B_R22">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R3" id="B_R31"><label for="B_R31">Si</label>
+                    <input type="radio" name="B_R3" id="B_R32"><label for="B_R32">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R4" id="B_R41"><label for="B_R41">Si</label>
+                    <input type="radio" name="B_R4" id="B_R42"><label for="B_R42">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R5" id="B_R51"><label for="B_R51">Si</label>
+                    <input type="radio" name="B_R5" id="B_R52"><label for="B_R52">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R6" id="B_R61"><label for="B_R61">Si</label>
+                    <input type="radio" name="B_R6" id="B_R62"><label for="B_R62">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R7" id="B_R71"><label for="B_R71">Si</label>
+                    <input type="radio" name="B_R7" id="B_R72"><label for="B_R72">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="B_R7" id="B_R71"><label for="B_R71">Si</label>
+                    <input type="radio" name="B_R7" id="B_R72"><label for="B_R72">No</label>
+                </div>
+            </fieldset><!--Cierre de caja de respuestas-->
+
+            <fieldset class="caja_preguntas"><!--Apertura de caja de preguntas-->
+                <div><label for="">Disnea</label></div>
+                <div><label for="">Ortopnea</label></div>
+                <div><label for="">Dolor inspiratorio</label></div>
+                <div><label for="">Tiraje</label></div>
+                <div><label for="">Cianosis</label></div>
+                <div><label for="">Ruidos respiratorios</label></div>
+                <div><label for="">Tos</label></div>
+                <div><label for="">Sospecha de infeccion respiratoria</label></div>
+
+            </fieldset><!--Cierre de caja de preguntas-->
+        </fieldset><!--Cierre de caja signos/sintomas-->
+        <fieldset class="caja_tecnicas_realizadas">
+            <legend>Técnicas realizadas</legend>
+            <!--Apertura caja de tecnicas realizadas-->
+            <div>
+                <input type="checkbox" id="B_TR_1"><label for="B_TR_1">Oxigenoreapia</label>
+                <select name="list_box" id="O2">
+                    <option value="...">...</option>
+                    <option value="gafas nasales">Gafas nasales</option>
+                    <option value="ventimask">Ventimask</option>
+                    <option value="reservorio">Reservorio</option>
+                    <option value="nebulizacion">Nebulización</option>
+                    <option value="ventilacion mecanica invasiva">Ventilación mecánica invasiva</option>
+                </select>
+                <input type="number" id="B_TR_2"><label for="B_TR_2">% Fio2</label>
+                <input type="number" id="B_TR_3"><label for="B_TR_3">Litros</label>
+            </div>
+            </div>
+
+            <div><input type="checkbox" id="B_TR_4"><label for="B_TR_4">Ventilación mecánica</label>
+                <select name="list_box" id="vm">
+                    <option value="...">...</option>
+                    <option value="CPAP">CPAP - Presión Positiva Continua en la Vía Aérea</option>
+                    <option value="BiPAP">BiPAP - Bilevel Positive Airway Pressure</option>
+                    <option value="VCV">VCV - Ventilación Controlada por Volumen</option>
+                    <option value="PCV">PCV - Ventilación Controlada por Presión</option>
+                    <option value="SIMV">SIMV - Ventilación Mandatoria Intermitente Sincronizada</option>
+                </select>
+            </div>
+
+
+        </fieldset><!--Cierre de caja de tecnicas realizadas-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de  caja B - Breathing-->
+
+
+
+
+
+    <!--Apertura caja C - Circulation-->
+    <fieldset class="caja_primaria">
+        <legend>C - Circulation | Circulatorio</legend>
+        <fieldset class="caja_secundaria">
+            <legend>¿El patrón se encuentra alterado?</legend>
+            <select name="list_box" id="C">
+                <option value="...">...</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset><!--Cierre de caja de patron alterado-->
+        <!--Apertura caja signos/sintomas-->
+        <fieldset class="caja_secundaria">
+            <legend>Signos y sintomas</legend>
+            <!--Apertura de caja de respuestas-->
+            <fieldset class="caja_respuesta_signos_sintomas">
+                <div>
+                    <input type="radio" name="C_R1" id="C_R11"><label for="C_R11">Si</label>
+                    <input type="radio" name="C_R1" id="C_R12"><label for="C_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R2" id="C_R21"><label for="C_R21">Si</label>
+                    <input type="radio" name="C_R2" id="C_R22"><label for="C_R22">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R3" id="C_R31"><label for="C_R31">Si</label>
+                    <input type="radio" name="C_R3" id="C_R32"><label for="C_R32">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R4" id="C_R41"><label for="C_R41">Si</label>
+                    <input type="radio" name="C_R4" id="C_R42"><label for="C_R42">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R5" id="C_R51"><label for="C_R51">Si</label>
+                    <input type="radio" name="C_R5" id="C_R52"><label for="C_R52">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R6" id="C_R61"><label for="C_R61">Si</label>
+                    <input type="radio" name="C_R6" id="C_R62"><label for="C_R62">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R7" id="C_R71"><label for="C_R71">Si</label>
+                    <input type="radio" name="C_R7" id="C_R72"><label for="C_R72">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R7" id="C_R71"><label for="C_R71">Si</label>
+                    <input type="radio" name="C_R7" id="C_R72"><label for="C_R72">No</label>
+                </div>
+            </fieldset><!--Cierre de caja de respuestas-->
+
+            <fieldset class="caja_preguntas"><!--Apertura de caja de preguntas-->
+                <div><label for="">Inestabilidad hemodinámica</label></div>
+                <div><label for="">Dolor torácico</label></div>
+                <div><label for="">Pulso arritmico</label></div>
+                <div><label for="">Hemorragias</label>
+                    <select name="list_box" id="O2">
+                        <option value="...">...</option>
+                        <option value="Episcleritis">Episcleritis: Inflamación ocular, sangrado leve</option>
+                        <option value="Epistaxis">Epistaxis: Sangrado de nariz</option>
+                        <option value="Equimosis">Equimosis: Moretones bajo piel</option>
+                        <option value="Gingivorragia">Gingivorragia: Sangrado de encías</option>
+                        <option value="Hemartrosis">Hemartrosis: Sangre en articulación</option>
+                        <option value="Hematemesis">Hematemesis: Vomitar sangre</option>
+                        <option value="Hematoquecia">Hematoquecia: Sangre roja en heces</option>
+                        <option value="Hematuria">Hematuria: Sangre en orina</option>
+                        <option value="Hemofilia">Hemofilia: Sangrado prolongado, trastorno genético</option>
+                        <option value="Hemopericardio">Hemopericardio: Sangre alrededor del corazón</option>
+                        <option value="Hemoperitoneo">Hemoperitoneo: Sangre en cavidad abdominal</option>
+                        <option value="Hemoptisis">Hemoptisis: Sangre al toser</option>
+                        <option value="Hemorragia conjuntival">Hemorragia conjuntival: Sangre en conjuntiva ocular
+                        </option>
+                        <option value="Hemorragia epidural">Hemorragia epidural: Sangre entre cráneo y duramadre
+                        </option>
+                        <option value="Hemorragia intracerebral">Hemorragia intracerebral: Sangrado dentro del cerebro
+                        </option>
+                        <option value="Hemorragia intramuscular">Hemorragia intramuscular: Sangre en músculos</option>
+                        <option value="Hemorragia postparto">Hemorragia postparto: Sangrado tras parto</option>
+                        <option value="Hemorragia retiniana">Hemorragia retiniana: Sangre en retina</option>
+                        <option value="Hemorragia subaracnoidea">Hemorragia subaracnoidea: Sangrado entre cerebro y
+                            cráneo</option>
+                        <option value="Hemorragia subconjuntival">Hemorragia subconjuntival: Mancha roja en ojo</option>
+                        <option value="Hemorragia subdural">Hemorragia subdural: Sangre bajo duramadre cerebral</option>
+                        <option value="Hemorragia vaginal">Hemorragia vaginal: Sangrado vaginal no menstrual</option>
+                        <option value="Hemotórax">Hemotórax: Sangre en cavidad torácica</option>
+                        <option value="Melena">Melena: Heces negras, sangre digerida</option>
+                        <option value="Menorragia">Menorragia: Menstruación excesiva</option>
+                        <option value="Metrorragia">Metrorragia: Sangrado uterino anormal</option>
+                        <option value="Petequias">Petequias: Manchas rojas en piel</option>
+                        <option value="Púrpura">Púrpura: Sangrado en piel, mucosas</option>
+                        <option value="Rectorragia">Rectorragia: Sangrado rectal</option>
+                        <option value="Telangiectasia">Telangiectasia: Dilatación capilar, sangrado fácil</option>
+
+
+                    </select>
+                </div>
+                <div><label for="">Pérdida de conocimiento</label></div>
+                <div><label for="">Sospecha de infarto</label></div>
+                <div><label for="">Edemas en miembros inferiores</label></div>
+                <div><label for="">Palpitaciones</label></div>
+
+            </fieldset><!--Cierre de caja de preguntas-->
+        </fieldset><!--Cierre de caja signos/sintomas-->
+        <fieldset class="caja_tecnicas_realizadas">
+            <legend>Técnicas realizadas</legend>
+            <!--Apertura caja de tecnicas realizadas-->
+            <div>
+                <input type="checkbox" id="C_TR_1"><label for="C_TR_1">Hemostasia</label>
+                <select name="list_box" id="hemostasia">
+                    <option value="...">...</option>
+                    <option value="presion directa">Presión directa</option>
+                    <option value="torniquete">Torniquete</option>
+                </select>
+            </div>
+            <div>
+                <input type="checkbox" id="C_TR_2"><label for="C_TR_2">Canalización de acceso venoso</label>
+                <select name="list_box" id="VVP">
+                    <option value="...">...</option>
+                    <option value="14G">14G</option>
+                    <option value="16G">16G</option>
+                    <option value="18G">18G</option>
+                    <option value="20G">20G</option>
+                    <option value="22G">22G</option>
+                    <option value="24G">24G</option>
+                    <option value="intraosea">Intraósea</option>
+                </select>
+                <select name="list_box" id="P_VVP">
+                    <option value="...">...</option>
+                    <option value="MSI">MSI</option>
+                    <option value="MSD">MSD</option>
+                    <option value="MII">MII</option>
+                    <option value="MID">MID</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            </div>
+            <div>
+                <input type="checkbox" id="C_TR_3"><label for="C_TR_3">Canalización de acceso venoso</label>
+                <select name="list_box" id="VVP">
+                    <option value="...">...</option>
+                    <option value="14G">14G</option>
+                    <option value="16G">16G</option>
+                    <option value="18G">18G</option>
+                    <option value="20G">20G</option>
+                    <option value="22G">22G</option>
+                    <option value="24G">24G</option>
+                    <option value="intraosea">Intraósea</option>
+                </select>
+                <select name="list_box" id="P_VVP">
+                    <option value="...">...</option>
+                    <option value="MSI">MSI</option>
+                    <option value="MSD">MSD</option>
+                    <option value="MII">MII</option>
+                    <option value="MID">MID</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div><input type="checkbox" id="C_TR_4"><label for="C_TR_4">ECG</label>
+                <select name="list_box" id="ecg">
+                    <option value="...">...</option>
+                    <option value="Ritmo sinusal">Ritmo sinusal</option>
+                    <option value="Taquicardia sinusal">Taquicardia sinusal</option>
+                    <option value="Bradicardia sinusal">Bradicardia sinusal</option>
+                    <option value="Fibrilación auricular">Fibrilación auricular</option>
+                    <option value="Flutter auricular">Flutter auricular</option>
+                    <option value="Taquicardia supraventricular">Taquicardia supraventricular</option>
+                    <option value="Taquicardia ventricular">Taquicardia ventricular</option>
+                    <option value="Fibrilación ventricular">Fibrilación ventricular</option>
+                    <option value="Ritmo idioventricular acelerado">Ritmo idioventricular acelerado</option>
+                    <option value="Bloqueo AV de 1º grado">Bloqueo AV de 1º grado</option>
+                    <option value="Bloqueo AV de 2º grado">Bloqueo AV de 2º grado</option>
+                    <option value="Bloqueo AV de 2º grado">Bloqueo AV de 2º grado</option>
+                    <option value="Bloqueo AV de 3º grado">Bloqueo AV de 3º grado</option>
+                    <option value="Ritmo de escape auricular">Ritmo de escape auricular</option>
+                    <option value="Ritmo de escape ventricular">Ritmo de escape ventricular</option>
+                    <option value="Extrasístole supraventricular">Extrasístole supraventricular</option>
+                    <option value="Extrasístole ventricular">Extrasístole ventricular</option>
+                    <option value="Ritmo juncional">Ritmo juncional</option>
+                    <option value="Taquicardia juncional">Taquicardia juncional</option>
+                    <option value="Ritmo de marcapasos">Ritmo de marcapasos </option>
+                    <option value="Bloqueo de rama izquierda">Bloqueo de rama izquierda</option>
+                    <option value="Bloqueo de rama derecha">Bloqueo de rama derecha</option>
+                    <option value="Preexcitación ventricular">Preexcitación ventricular</option>
+                    <option value="Ritmo bifásico">Ritmo bifásico</option>
+                    <option value="Taquicardia paroxística supraventricular">Taquicardia paroxística supraventricular
+                    </option>
+                    <option value="Asistolia">Asistolia</option>
+                    <option value="Bloqueo sinoauricular">Bloqueo sinoauricular</option>
+                    <option value="Ritmo de la unión AV">Ritmo de la unión AV</option>
+                    <option value="Bloqueo fascicular anterior izquierdo">Bloqueo fascicular anterior izquierdo</option>
+                    <option value="Bloqueo fascicular posterior izquierdo">Bloqueo fascicular posterior izquierdo
+                    </option>
+                </select>
+            </div>
+            <div><input type="checkbox" id="C_TR_5"><label for="C_TR_5">Canalización de acceso endovascular
+                    central</label></div>
+            <div><input type="checkbox" id="C_TR_5"><label for="C_TR_6">Cardioversión</label></div>
+        </fieldset><!--Cierre de caja de tecnicas realizadas-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de C - Circulation-->
+
+
+
+
+
+
+
+
+    <!--Apertura caja D - Neurológico-->
+    <fieldset class="caja_primaria">
+        <legend>D - Disability | Neurológico</legend>
+        <fieldset class="caja_secundaria">
+            <legend>¿El patrón se encuentra alterado?</legend>
+            <select name="list_box" id="D">
+                <option value="...">...</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset><!--Cierre de caja de patron alterado-->
+        <!--Apertura caja signos/sintomas-->
+        <fieldset class="caja_secundaria">
+            <legend>Signos y sintomas</legend>
+            <!--Apertura de caja de respuestas-->
+            <fieldset class="caja_respuesta_signos_sintomas">
+                <div>
+                    <input type="radio" name="D_R1" id="D_R11"><label for="D_R11">Si</label>
+                    <input type="radio" name="D_R1" id="D_R12"><label for="D_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R2" id="D_R21"><label for="D_R21">Si</label>
+                    <input type="radio" name="D_R2" id="D_R22"><label for="D_R22">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R3" id="D_R31"><label for="D_R31">Si</label>
+                    <input type="radio" name="D_R3" id="D_R32"><label for="D_R32">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R4" id="D_R41"><label for="D_R41">Si</label>
+                    <input type="radio" name="D_R4" id="D_R42"><label for="D_R42">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R5" id="D_R51"><label for="D_R51">Si</label>
+                    <input type="radio" name="D_R5" id="D_R52"><label for="D_R52">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R6" id="D_R61"><label for="D_R61">Si</label>
+                    <input type="radio" name="D_R6" id="D_R62"><label for="D_R62">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R7" id="D_R71"><label for="D_R71">Si</label>
+                    <input type="radio" name="D_R7" id="D_R72"><label for="D_R72">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R7" id="D_R71"><label for="D_R71">Si</label>
+                    <input type="radio" name="D_R7" id="D_R72"><label for="D_R72">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="D_R8" id="D_R78"><label for="D_R78">Si</label>
+                    <input type="radio" name="D_R8" id="D_R78"><label for="D_R78">No</label>
+                </div>
+            </fieldset><!--Cierre de caja de respuestas-->
+
+            <fieldset class="caja_preguntas"><!--Apertura de caja de preguntas-->
+                <div><label for="">Alteración de la conducta</label></div>
+                <div><label for="">Desorientación</label></div>
+                <div><label for="">Cefalea</label></div>
+                <div><label for="">Focalidad neurológica</label></div>
+                <div><label for="">Afasia</label></div>
+                <div><label for="">Convulsiones</label></div>
+                <div><label for="">Alteración pupilar</label></div>
+                <div><label for="">Convulsiones</label></div>
+                <div><label for="">Sospecha de consumo de drogas</label></div>
+
+            </fieldset><!--Cierre de caja de preguntas-->
+        </fieldset><!--Cierre de caja signos/sintomas-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de D - Neurologico-->
+
+
+
+
+
+
+
+
+    <!--Apertura caja E - Exposure-->
+    <fieldset class="caja_primaria">
+        <legend>E - Exposure | Exposición</legend>
+        <fieldset class="caja_secundaria">
+            <legend>¿El patrón se encuentra alterado?</legend>
+            <select name="list_box" id="E">
+                <option value="...">...</option>
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+        </fieldset><!--Cierre de caja de patron alterado-->
+        <!--Apertura caja signos/sintomas-->
+        <fieldset class="caja_secundaria">
+            <legend>Signos y sintomas</legend>
+            <!--Apertura de caja de respuestas-->
+            <fieldset class="caja_respuesta_signos_sintomas">
+                <div>
+                    <input type="radio" name="C_R1" id="C_R11"><label for="C_R11">Si</label>
+                    <input type="radio" name="C_R1" id="C_R12"><label for="C_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R2" id="C_R21"><label for="C_R21">Si</label>
+                    <input type="radio" name="C_R2" id="C_R22"><label for="C_R22">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R3" id="C_R31"><label for="C_R31">Si</label>
+                    <input type="radio" name="C_R3" id="C_R32"><label for="C_R32">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R4" id="C_R41"><label for="C_R41">Si</label>
+                    <input type="radio" name="C_R4" id="C_R42"><label for="C_R42">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R5" id="C_R51"><label for="C_R51">Si</label>
+                    <input type="radio" name="C_R5" id="C_R52"><label for="C_R52">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R6" id="C_R61"><label for="C_R61">Si</label>
+                    <input type="radio" name="C_R6" id="C_R62"><label for="C_R62">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R7" id="C_R71"><label for="C_R71">Si</label>
+                    <input type="radio" name="C_R7" id="C_R72"><label for="C_R72">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="C_R7" id="C_R71"><label for="C_R71">Si</label>
+                    <input type="radio" name="C_R7" id="C_R72"><label for="C_R72">No</label>
+                </div>
+            </fieldset><!--Cierre de caja de respuestas-->
+
+            <fieldset class="caja_preguntas"><!--Apertura de caja de preguntas-->
+                <div><label for="">Lesiones cutáneas</label></div>
+                <div><label for="">Sospecha de luxación</label>
+                    <select name="list_box" id="fractura">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="cadera">Cadera</option>
+                        <option value="vertebral">Vertebral</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                </div>
+                <div><label for="">Sospecha de fractura</label>
+                    <select name="list_box" id="fractura">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="cadera">Cadera</option>
+                        <option value="craneo">Cráneo</option>
+                        <option value="vertebral">Vertebral</option>
+                        <option value="costal">Costal</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                </div>
+                <div><label for="">Objeto enclavado</label>
+                    <select name="list_box" id="Objeto_enclavado">
+                        <option value="...">...</option>
+                        <option value="Objeto enclavado en cabeza">Cabeza</option>
+                        <option value="Objeto enclavado en cuello">Cuello</option>
+                        <option value="Objeto enclavado en tórax">Tórax</option>
+                        <option value="Objeto enclavado en abdomen">Abdomen</option>
+                        <option value="Objeto enclavado en MSI">MSI</option>
+                        <option value="Objeto enclavado en MSD">MSD</option>
+                        <option value="Objeto enclavado en MII">MII</option>
+                        <option value="Objeto enclavado en MID">MID</option>
+                        <option value="Objeto enclavado en Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div><label for="">Heridas por arma blanca...</label></div>
+                <div><label for="">Sospecha de impacto de alta energía</label></div>
+                <div><label for="">oo</label></div>
+                <div><label for="">oo</label></div>
+
+            </fieldset><!--Cierre de caja de preguntas-->
+        </fieldset><!--Cierre de caja signos/sintomas-->
+        <fieldset class="caja_tecnicas_realizadas">
+            <legend>Técnicas realizadas</legend>
+            <!--Apertura caja de tecnicas realizadas-->
+            <div><input type="checkbox" id="E_TR_1"><label for="E_TR_1">Collarín cervical</label></div>
+            <div><input type="checkbox" id="E_TR_2"><label for="E_TR_2">Inmovilizador verterbal</label></div>
+            <div><input type="checkbox" id="E_TR_3"><label for="E_TR_3">Férula de vacío</label></div>
+            <div><input type="checkbox" id="E_TR_4"><label for="E_TR_4">Férula rígida</label></div>
+            <div><input type="checkbox" id="E_TR_5"><label for="E_TR_5">Vendaje</label></div>
+        </fieldset><!--Cierre de caja de tecnicas realizadas-->
+        <input type="button" value="Siguiente">
+    </fieldset> <!--Cierre de caja principal de E - Exposure-->
+
+
+
+
+
+
+
+
+
+        <!--Apertura caja Constantes vitales-->
+        <fieldset class="caja_primaria">
+            <legend>Fin de la intervención</legend>
+
+            <fieldset class="caja_tecnicas_realizadas">
+                <legend>Constantes vitales</legend>
+                <!--Apertura caja de tecnicas realizadas-->
+                <div id="tabla_constantes">
+                <tr>
+                 <th>Hora</th>
+                    <th>FC</th>
+                    <th>SatO2</th>
+                    <th>TAS</th>
+                    <th>TAS</th>
+                    <th>TAM</th>
+                    <th>Gluc</th>
+                    <th>Cap</th>
+                    <th>Temp</th>
+                </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>b</td>
+                        <td>c</td>
+                        <td>d</td>
+                        <td>e</td>
+                        <td>f</td>
+                        <td>g</td>
+                        <td>h</td>
+                        <td>i</td>
+                    </tr>
+                </div>
+
+
+            </fieldset><!--Cierre de caja de tecnicas realizadas-->
+            <fieldset class="caja_tecnicas_realizadas">
+                <legend>Escalas</legend>
+                <!--Apertura caja de tecnicas realizadas-->
+                    <div><input id="GCS" type="number"><label for="GCS">Glasgow</label></div>
+                    <div><input id="EVA" type="number"><label for="EVA">Escala visual analógica</label></div>
+                    <div><input id="RTS" type="number"><label for="RTS">RTS: Revised Trauma Scale</label></div>
+            </fieldset><!--Cierre de caja de tecnicas realizadas-->
+            <fieldset class="caja_tecnicas_realizadas">
+                <legend>Medicación administrada</legend><!--Apertura caja de medicaciones-->
+
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med1" type="list" placeholder="Medicación"><label for="med1"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med2" type="list" placeholder="Medicación"><label for="med2"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma2" type="checkbox" name="firma"><label for="firma2">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med3" type="list" placeholder="Medicación"><label for="med3"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma3" type="checkbox" name="firma"><label for="firma3">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med4" type="list" placeholder="Medicación"><label for="med4"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma4" type="checkbox" name="firma"><label for="firma4">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med5" type="list" placeholder="Medicación"><label for="med5"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma5" type="checkbox" name="firma"><label for="firma5">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med6" type="list" placeholder="Medicación"><label for="med6"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma6" type="checkbox" name="firma"><label for="firma6">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med7" type="list" placeholder="Medicación"><label for="med7"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma7" type="checkbox" name="firma"><label for="firma7">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med8" type="list" placeholder="Medicación"><label for="med8"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma8" type="checkbox" name="firma"><label for="firma8">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med9" type="list" placeholder="Medicación"><label for="med9"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma9" type="checkbox" name="firma"><label for="firma9">Firma facultativa</label>
+                    </div>
+                    <div>
+                        <input type="time" placeholder="Hora">
+                        <input id="med10" type="list" placeholder="Medicación"><label for="med10"></label>
+                        <input type="number" placeholder="Dosis">
+                        <select name="list_box" id="dosis">
+                            <option value="...">...</option>
+                            <option value="mcg">mcg</option>
+                            <option value="mg">mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="IV">IV</option>
+                            <option value="IM">IM</option>
+                            <option value="SC">SC</option>
+                            <option value="IO">IO</option>
+                            <option value="VO">VO</option>
+                            <option value="Intranasal">Intranasal</option>
+                            <option value="Nebul.">Nebul.</option>
+                            <option value="Tópica">Tópica</option>
+                        </select>
+                        <input id="firma10" type="checkbox" name="firma"><label for="firma10">Firma facultativa</label>
+                    </div>
+            </fieldset><!--Cierre de caja de medicacion administrada-->
+
+            <fieldset class="caja_tecnicas_realizadas">   <!--Apertura caja de inmovilizacion/movilizacion-->
+                <legend>Material de movilización - Inmovilización utilizado</legend>
+                    <div>
+                        <input id="collarin" type="checkbox"><label for="collarin">Collarin cervical</label>
+                        <input id="elche" type="checkbox"><label for="elche">Inmovilizador vertebral</label>
+                    </div>
+                    <div>
+                        <input id="Ferula_msi" type="checkbox"><label for="collarin">Férula MSI</label> 
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="vacio">Vacío</option>
+                            <option value="rigida">Rígida</option>
+                            <option value="hinchable">Hinchable</option>
+                        </select>
+                        <input id="Ferula_msd" type="checkbox"><label for="collarin">Férula MSD</label> 
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="vacio">Vacío</option>
+                            <option value="rigida">Rígida</option>
+                            <option value="hinchable">Hinchable</option>
+                        </select>
+                    </div> 
+                    <div>
+                        <input id="Ferula_mii" type="checkbox"><label for="collarin">Férula MII</label> 
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="vacio">Vacío</option>
+                            <option value="rigida">Rígida</option>
+                            <option value="hinchable">Hinchable</option>
+                            <option value="traccion">Tracción</option>
+                        </select>
+                        <input id="Ferula_mid" type="checkbox"><label for="collarin">Férula MID</label> 
+                        <select name="list_box" id="administración">
+                            <option value="...">...</option>
+                            <option value="vacio">Vacío</option>
+                            <option value="rigida">Rígida</option>
+                            <option value="hinchable">Hinchable</option>
+                            <option value="traccion">Tracción</option>
+                        </select>
+                    </div> 
+                    <div>
+                        <input id="t_espinal" type="checkbox"><label for="t_espinal">Tablero espinal</label>
+                        <input id="cuchara" type="checkbox"><label for="cuchara">Camilla cuchara</label> 
+                    </div> 
+                    <div>
+                        <input id="c_vacio" type="checkbox"><label for="c_vacio">Colchón de vacío</label>
+                        <input id="ferno" type="checkbox"><label for="ferno">Dispositivo Kendrick</label>
+                    </div> 
+                    <div>
+                        <input id="evac" type="checkbox"><label for="evac">Silla EVAC</label>
+                        <input id="lona" type="checkbox"><label for="lona">Lona</label> 
+                    </div> 
+                    
+            </fieldset><!--Cierre de caja de tecnicas realizadas-->
+            <input type="button" value="Siguiente">
+        </fieldset> <!--Cierre de caja principal de inmovilizacion/movilizacion-->
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

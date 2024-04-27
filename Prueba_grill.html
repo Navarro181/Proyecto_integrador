@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Prueba_grill.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="header">
+            barra de navegacion
+        </div><!--salida header-->
+        <div class="aside">
+            pestañas
+        </div><!--salida aside-->
+        <div class="principal">
+            <div class="respuestas"><!--Apertura de caja de respuestas si-->
+                <div>
+                    <input type="radio" name="A_R1" id="A_R11"><label for="A_R11">Si</label>
+                    <input type="radio" name="A_R1" id="A_R12"><label for="A_R12">No</label>
+                </div>
+                <div>
+                    <input type="radio" name="A_R2" id="A_R21"><label for="A_R21">Si</label>
+                    <input type="radio" name="A_R2" id="A_R22"><label for="A_R22">No</label>
+                </div>
+            </div> <!--salida Respuestas-->
+
+            <div class="preguntas"><!--Apertura preguntas-->
+                <label for="">¿Precisa apertura de la vía aérea?</label>
+                <label for="">¿Sospecha de lesión cervical?</label>
+            </div><!--salida preguntas-->
+            <div class="tecnicas_realizadas"><!--tecnicas_realizadas-->
+                <fieldset class="caja_tecnicas_realizadas">
+                    <legend>Técnicas realizadas - Patrón repiratorio</legend>
+                    <div><input type="checkbox" id="A_TR_1"><label for="A_TR_1">Dispositivo supraglótico</label>
+                        <select name="list_box" id="B">
+                            <option value="...">...</option>
+                            <option value="Cánula orofaríngea">Cánula orofaríngea</option>
+                            <option value="Mascarilla laríngea">Mascarilla laríngea</option>
+                        </select>
+                        <input type="number" id="A_TR_2"><label for="A_TR_2">Número</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="A_TR_3"><label for="A_TR_3">Intubación orotraqueal</label>
+                        <input type="number" id="A_TR_4"><label for="A_TR_4">Nº del tubo</label>
+                        <input type="number" id="A_TR_5"><label for="A_TR_5">Comisura labial</label>
+                    </div>
+                    <div><input type="checkbox" id="A_TR_6"><label for="A_TR_6">Aspiración de secreciones</label></div>
+                    <div><input type="checkbox" id="A_TR_7"><label for="A_TR_7">Extracción de cuerpo extraño</label></div>
+                </fieldset>
+            </div><!--salida tenicas realizadas-->
+
+        </div><!--salida principal-->
+
+        <div class="footer">
+            <label for="">Empatía</label>
+            <label for="">Integridad</label>
+            <label for="">Compasión</label>
+            <label for="">Excelencia</label>
+            <label for="">Respeto</label>
+            <label for="">Responsabilidad</label>
+            <label for="">Universalidad</label>
+
+        </div>
+
+    </div> <!--salida de contenedor-->
+
+</body>
+
+</html>

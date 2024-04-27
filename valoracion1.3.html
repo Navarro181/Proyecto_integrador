@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Médica</title>
+    <link rel="stylesheet" href="valoracion1.3.css">
+</head>
+
+<body>
+    <header>
+        Navigation bar. Poner fotos con anclas a donde quiero que vaya
+    </header>
+    <div class="sidebar">
+        <button onclick="toggleSection('datosPaciente')">Datos personales</button>
+        <button onclick="toggleSection('datosSanitarios')">Datos Sanitarios</button>
+        <button onclick="toggleSection('valoracionSanitaria')">Exploración física</button>
+        <button onclick="toggleSection('constantesVitales')">Constantes vitales</button>
+        <button onclick="toggleSection('tecnicasRealizadas')">Técnicas realizadas</button>
+        <button onclick="toggleSection('medicacion')">Medicación</button>
+        <button onclick="toggleSection('fin')">Fin de intervención</button>
+    </div>
+
+    <section id="principal">
+        <section id="datosPaciente">
+            <form action="#" method="post">
+                <div class="seccion">
+                    <fieldset>
+                        <legend>Datos básicos</legend>
+                        <div class="datosBasicos">
+                            <label for="lugarAtencion">Lugar de atención</label>
+                            <input type="text" id="lugarAtencion" name="lugarAtencion">
+
+                            <div class="autocomplete-wrapper">
+                                <label for="search-box">Municipio:</label>
+                                <input type="text" id="search-box"  autocomplete="off">
+                                <div id="suggestions" class="Caja_autorrelleno"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="seccion">
+                    <fieldset>
+                        <legend>Datos personales
+                            <label><input type="checkbox" name="niegaAsistencia"> Se niega a la asistencia</label>
+
+                        </legend>
+                        <div class="datosPersonales">
+                            <label for="nombreApellidos">Nombre y apellidos</label>
+                            <input type="text" id="nombreApellidos" name="nombreApellidos">
+
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" id="telefono" name="telefono">
+
+                            <label for="edad">Edad</label>
+                            <input type="number" id="edad" name="edad">
+
+                            <label for="domicilio">Domicilio</label>
+                            <input type="text" id="domicilio" name="domicilio">
+
+                            <label for="localidadDomicilio">Localidad del domicilio</label>
+                            <input type="text" id="localidadDomicilio" name="localidadDomicilio">
+
+                            <div class="cajaEnLinea">
+                                <div class="radio"><label for="">Género</label>
+                                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="genero" value="Hombre"> Hombre</label>
+                                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="genero" value="Mujer"> Mujer</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </section>
+
+
+        <section id="datosSanitarios">
+            <form action="#" method="post">
+                <div class="seccion">
+                    <fieldset>
+                        <legend>Datos sanitarios</legend>
+                        <div class="datosSanitarios">
+                            <label for="motivoConsulta">Motivo de consulta</label>
+                            <input type="text"  id="autocompleteTextbox"  oninput="autocompletar()"
+                                placeholder="Escribe aquí...">
+                                
+                            <div id="suggestionsBox" class="Caja_autorrelleno"></div>
+                            <label for="tiempoEvolucion">Tiempo de evolución</label>
+                            <input type="text" id="tiempoEvolucion" name="tiempoEvolucion">
+                            <div class="cajaEnLinea">
+                                <label for="antecedentes">Antecedentes personales</label>
+                                <label><input type="checkbox" id="antecedentesPersonales" name="antecedentesPersonales"> No refiere antecedentes
+                                    personales</label>
+                            </div>
+                            <input type="text" id="antecedentes" name="antecedentes">
+                            <div class="cajaEnLinea">
+                                <label for="alergias">Alergias </label>
+                                <label><input type="checkbox" name="alergias" id="NORAMC"> NO RAMC (Reacciones Adversas a
+                                    Medicamentos
+                                    Conocidas)</label>
+                            </div>
+                            <input type="text" id="alergias" name="alergias">
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </section>
+
+
+        <section id="valoracionSanitaria">
+            <fieldset>
+                <legend>A - Airway | Vía aérea -
+                    <label><input type="checkbox" name="airwayUnaltered" onclick="toggleAirway(this)"> El patrón no está alterado</label>
+                </legend>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="airwayOpen" value="yes"> Sí </label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="airwayOpen" value="no">No -</label>
+                    <span class="answer">¿Precisa apertura de la vía aérea?</span>
+
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cervicalInjury" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cervicalInjury" value="no">No -</label>
+                  <span class="answer">¿Sospecha de lesión cervical?</span>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>B - Breathing | Respiratorio -
+                    <label><input type="checkbox" name="breathingUnaltered" onclick="toggleSectionCheckbox(this)"> El
+                        patrón no está alterado</label>
+                </legend>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="dyspnea" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="dyspnea" value="no"> No -</label>
+                  <span class="answer">Disnea</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="orthopnea" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="orthopnea" value="no"> No -</label>
+                  <span class="answer">Ortopnea</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="inspiratoryPain" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="inspiratoryPain" value="no"> No -</label>
+                  <span class="answer">Dolor inspiratorio</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="retraction" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="retraction" value="no"> No -</label>
+                  <span class="answer">Tiraje</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cyanosis" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cyanosis" value="no"> No -</label>
+                  <span class="answer">Cianosis</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="breathingSounds" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="breathingSounds" value="no"> No -</label>
+                  <span class="answer">Ruidos respiratorios</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cough" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="cough" value="no"> No -</label>
+                  <span class="answer">Tos</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="respiratoryInfection" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="respiratoryInfection" value="no"> No -</label>
+                  <span class="answer">Sospecha de infección respiratoria</span>
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>C - Circulation | Circulatorio -
+                    <label><input type="checkbox" name="circulationUnaltered" onclick="toggleSectionCheckbox(this)">El
+                        patrón no está alterado</label>
+                </legend>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="hemodynamicInstability" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="hemodynamicInstability" value="no"> No -</label>
+                  <span class="answer">Inestabilidad hemodinámica</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="chestPain" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="chestPain" value="no"> No -</label>
+                  <span class="answer">Dolor torácico</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="arrhythmicPulse" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="arrhythmicPulse" value="no"> No -</label>
+                  <span class="answer">Pulso arrítmico</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="hemorrhages" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="hemorrhages" value="no"> No -</label>
+                  <span class="answer">Hemorragias</span>
+                    <select name="list_box" id="O2">
+                        <option value="...">...</option>
+                        <option value="Episcleritis">Episcleritis</option>
+                        <option value="Epistaxis">Epistaxis</option>
+                        <option value="Equimosis">Equimosis</option>
+                        <option value="Gingivorragia">Gingivorragia</option>
+                        <option value="Hemartrosis">Hemartrosis</option>
+                        <option value="Hematemesis">Hematemesis</option>
+                        <option value="Hematoquecia">Hematoquecia</option>
+                        <option value="Hematuria">Hematuria</option>
+                        <option value="Hemofilia">Hemofilia</option>
+                        <option value="Hemopericardio">Hemopericardio</option>
+                        <option value="Hemoperitoneo">Hemoperitoneo</option>
+                        <option value="Hemoptisis">Hemoptisis</option>
+                        <option value="Hemorragia conjuntival">Hemorragia conjuntival</option>
+                        <option value="Hemorragia epidural">Hemorragia epidural</option>
+                        <option value="Hemorragia intracerebral">Hemorragia intracerebral</option>
+                        <option value="Hemorragia intramuscular">Hemorragia intramuscular</option>
+                        <option value="Hemorragia postparto">Hemorragia postparto</option>
+                        <option value="Hemorragia retiniana">Hemorragia retiniana</option>
+                        <option value="Hemorragia subaracnoidea">Hemorragia subaracnoidea</option>
+                        <option value="Hemorragia subconjuntival">Hemorragia subconjuntival</option>
+                        <option value="Hemorragia subdural">Hemorragia subdural</option>
+                        <option value="Hemorragia vaginal">Hemorragia vaginal</option>
+                        <option value="Hemotórax">Hemotórax</option>
+                        <option value="Melena">Melena</option>
+                        <option value="Menorragia">Menorragia</option>
+                        <option value="Metrorragia">Metrorragia</option>
+                        <option value="Petequias">Petequias</option>
+                        <option value="Púrpura">Púrpura</option>
+                        <option value="Rectorragia">Rectorragia</option>
+                        <option value="Telangiectasia">Telangiectasia</option>
+
+
+                    </select>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="lossOfConsciousness" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="lossOfConsciousness" value="no"> No -</label>
+                  <span class="answer">Pérdida de conocimiento</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="infarctionSuspect" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="infarctionSuspect" value="no"> No -</label>
+                  <span class="answer">Sospecha de infarto</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="lowerLimbEdema" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="lowerLimbEdema" value="no"> No -</label>
+                  <span class="answer">Edemas en miembros inferiores</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="palpitations" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="palpitations" value="no"> No -</label>
+                  <span class="answer">Palpitaciones</span>
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>D - Disability | Neurológico
+                    <label><input type="checkbox" name="disabilityUnaltered" onclick="toggleSectionCheckbox(this)">El
+                        patrón no está alterado</label>
+                </legend>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="behaviorAlteration" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="behaviorAlteration" value="no"> No -</label>
+                  <span class="answer">Alteración de la conducta</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="disorientation" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="disorientation" value="no"> No -</label>
+                  <span class="answer">Desorientación</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="headache" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="headache" value="no"> No -</label>
+                  <span class="answer">Cefalea</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="neurologicalFocality" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="neurologicalFocality" value="no"> No -</label>
+                  <span class="answer">Focalidad neurológica</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="aphasia" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="aphasia" value="no"> No -</label>
+                  <span class="answer">Afasia</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="convulsions1" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="convulsions1" value="no"> No -</label>
+                  <span class="answer">Convulsiones</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="pupillaryAlteration" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="pupillaryAlteration" value="no"> No -</label>
+                  <span class="answer">Alteración pupilar</span>
+                </div>
+                <!-- La pregunta "Convulsiones" está duplicada en el requerimiento. Asumiendo que fue un error, se omite la duplicación aquí. Si se necesita dos veces por alguna razón, asegúrese de darle un nombre único al segundo conjunto de radios. -->
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="drugUseSuspect" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="drugUseSuspect" value="no"> No -</label>
+                  <span class="answer">Sospecha de consumo de drogas</span>
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+
+                <legend>E - Exposure | Exposición
+                    <label><input type="checkbox" name="exposureUnaltered" onclick="toggleSectionCheckbox(this)"> El
+                        patrón no está alterado</label>
+                </legend>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="skinLesions" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="skinLesions" value="no"> No -</label>
+                  <span class="answer">Lesiones cutáneas</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="dislocationSuspect" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="dislocationSuspect" value="no"> No -</label>
+                  <span class="answer">Sospecha de luxación</span>
+                    <select name="list_box" id="fractura">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="cadera">Cadera</option>
+                        <option value="vertebral">Vertebral</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="fractureSuspect" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="fractureSuspect" value="no"> No -</label>
+                  <span class="answer">Sospecha de fractura</span>
+                    <select name="list_box" id="fractura">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="cadera">Cadera</option>
+                        <option value="craneo">Cráneo</option>
+                        <option value="vertebral">Vertebral</option>
+                        <option value="costal">Costal</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="objetoEnclavado" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="objetoEnclavado" value="no"> No -</label>
+                  <span class="answer">Objeto enclavado</span>
+                    <select name="list_box" id="Objeto_enclavado">
+                        <option value="...">...</option>
+                        <option value="Objeto enclavado en cabeza">Cabeza</option>
+                        <option value="Objeto enclavado en cuello">Cuello</option>
+                        <option value="Objeto enclavado en tórax">Tórax</option>
+                        <option value="Objeto enclavado en abdomen">Abdomen</option>
+                        <option value="Objeto enclavado en MSI">MSI</option>
+                        <option value="Objeto enclavado en MSD">MSD</option>
+                        <option value="Objeto enclavado en MII">MII</option>
+                        <option value="Objeto enclavado en MID">MID</option>
+                        <option value="Objeto enclavado en Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="stabWounds" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="stabWounds" value="no"> No -</label>
+                  <span class="answer">Heridas por arma blanca</span>
+                </div>
+                <div class="question-container">
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="highEnergyImpactSuspect" value="yes"> Sí</label>
+                    <label><input type="radio" onclick="updateBackgroundColor(this)" name="highEnergyImpactSuspect" value="no"> No -</label>
+                  <span class="answer">Sospecha de impacto de alta energía</span>
+                </div>
+            </fieldset>
+
+        </section>
+        <section id="constantesVitales">
+            <table id="datosPaciente">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>FC</th>
+                        <th>SatO2</th>
+                        <th>TAS</th>
+                        <th>TAD</th>
+                        <th>TAM</th>
+                        <th>Glucemia</th>
+                        <th>Capnografía</th>
+                        <th>Temperatura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="hora" placeholder="HH:MM"></td>
+                        <td><input type="text" name="fc"></td>
+                        <td><input type="text" name="sato2"></td>
+                        <td><input type="text" name="tas"></td>
+                        <td><input type="text" name="tad"></td>
+                        <td><input type="text" name="tam"></td>
+                        <td><input type="text" name="gluc"></td>
+                        <td><input type="text" name="cap"></td>
+                        <td><input type="text" name="temp"></td>
+                    </tr>
+                    <!-- Replicar la fila anterior cuatro veces más -->
+                    <tr>
+                        <td><input type="text" name="hora" placeholder="HH:MM"></td>
+                        <td><input type="text" name="fc"></td>
+                        <td><input type="text" name="sato2"></td>
+                        <td><input type="text" name="tas"></td>
+                        <td><input type="text" name="tad"></td>
+                        <td><input type="text" name="tam"></td>
+                        <td><input type="text" name="gluc"></td>
+                        <td><input type="text" name="cap"></td>
+                        <td><input type="text" name="temp"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="hora" placeholder="HH:MM"></td>
+                        <td><input type="text" name="fc"></td>
+                        <td><input type="text" name="sato2"></td>
+                        <td><input type="text" name="tas"></td>
+                        <td><input type="text" name="tad"></td>
+                        <td><input type="text" name="tam"></td>
+                        <td><input type="text" name="gluc"></td>
+                        <td><input type="text" name="cap"></td>
+                        <td><input type="text" name="temp"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="hora" placeholder="HH:MM"></td>
+                        <td><input type="text" name="fc"></td>
+                        <td><input type="text" name="sato2"></td>
+                        <td><input type="text" name="tas"></td>
+                        <td><input type="text" name="tad"></td>
+                        <td><input type="text" name="tam"></td>
+                        <td><input type="text" name="gluc"></td>
+                        <td><input type="text" name="cap"></td>
+                        <td><input type="text" name="temp"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="hora" placeholder="HH:MM"></td>
+                        <td><input type="text" name="fc"></td>
+                        <td><input type="text" name="sato2"></td>
+                        <td><input type="text" name="tas"></td>
+                        <td><input type="text" name="tad"></td>
+                        <td><input type="text" name="tam"></td>
+                        <td><input type="text" name="gluc"></td>
+                        <td><input type="text" name="cap"></td>
+                        <td><input type="text" name="temp"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <section id="tecnicasRealizadas">
+            <fieldset>
+                <legend>Patrón respiratorio</legend>
+                <div class="tecnicas">
+                    <input type="checkbox" id="dispositivoSupragloticoCheck" name="dispositivoSupragloticoCheck">
+                    <label for="dispositivoSupragloticoCheck">Dispositivo supraglótico</label>
+                    <select name="list_box" id="B">
+                        <option value="...">...</option>
+                        <option value="Cánula orofaríngea">Cánula orofaríngea</option>
+                        <option value="Mascarilla laríngea">Mascarilla laríngea</option>
+                    </select>
+                    <input type="text" id="numeroDispositivoSupraglotico" name="numeroDispositivoSupraglotico"
+                        placeholder="Número">
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="intubacionOrotraquealCheck" name="intubacionOrotraquealCheck">
+                    <label for="intubacionOrotraquealCheck">Intubación orotraqueal</label>
+
+                    <input type="text" id="numeroTuboIntubacion" name="numeroTuboIntubacion" placeholder="Nº del tubo">
+                    <input type="text" id="comisuraLabialIntubacion" name="comisuraLabialIntubacion"
+                        placeholder="Comisura labial">
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="aspiracionSecrecionesCheck" name="aspiracionSecrecionesCheck">
+                    <label for="aspiracionSecrecionesCheck">Aspiración de secreciones</label>
+
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="extraccionCuerpoExtranoCheck" name="extraccionCuerpoExtranoCheck">
+                    <label for="extraccionCuerpoExtranoCheck">Extracción de cuerpo extraño</label>
+
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="oxigenoterapiaCheck" name="oxigenoterapiaCheck">
+                    <label for="oxigenoterapiaCheck">Oxigenoterapia</label>
+                    <select name="list_box" id="O2">
+                        <option value="...">...</option>
+                        <option value="gafas nasales">Gafas nasales</option>
+                        <option value="ventimask">Ventimask</option>
+                        <option value="reservorio">Reservorio</option>
+                        <option value="nebulizacion">Nebulización</option>
+                        <option value="ventilacion mecanica invasiva">Ventilación mecánica invasiva</option>
+                    </select>
+
+                    <input type="text" id="fio2Oxigenoterapia" name="fio2Oxigenoterapia" placeholder="% Fio2">
+                    <input type="text" id="litrosOxigenoterapia" name="litrosOxigenoterapia" placeholder="Litros">
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="ventilacionMecanicaCheck" name="ventilacionMecanicaCheck">
+                    <label for="ventilacionMecanicaCheck">Ventilación mecánica</label>
+                    <select name="list_box" id="vm">
+                        <option value="...">...</option>
+                        <option value="CPAP">CPAP - Presión Positiva Continua en la Vía Aérea</option>
+                        <option value="BiPAP">BiPAP - Bilevel Positive Airway Pressure</option>
+                        <option value="VCV">VCV - Ventilación Controlada por Volumen</option>
+                        <option value="PCV">PCV - Ventilación Controlada por Presión</option>
+                        <option value="SIMV">SIMV - Ventilación Mandatoria Intermitente Sincronizada</option>
+                    </select>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Patrón circulatorio</legend>
+                <div class="tecnicas">
+                    <input type="checkbox" id="hemostasiaCheck" name="hemostasiaCheck">
+                    <label for="hemostasiaCheck">Hemostasia</label>
+                    <select name="list_box" id="hemostasia">
+                        <option value="...">...</option>
+                        <option value="presion directa">Presión directa</option>
+                        <option value="torniquete">Torniquete</option>
+                    </select>
+
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="canalizacionAccesoVenosoCheck1" name="canalizacionAccesoVenosoCheck1">
+                    <label for="canalizacionAccesoVenosoCheck1">Canalización de acceso venoso</label>
+                    <select name="list_box" id="VVP">
+                        <option value="...">...</option>
+                        <option value="14G">14G</option>
+                        <option value="16G">16G</option>
+                        <option value="18G">18G</option>
+                        <option value="20G">20G</option>
+                        <option value="22G">22G</option>
+                        <option value="24G">24G</option>
+                        <option value="intraosea">Intraósea</option>
+                    </select>
+                    <select name="list_box" id="P_VVP">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="tecnicas">
+                    <input type="checkbox" id="canalizacionAccesoVenosoCheck2" name="canalizacionAccesoVenosoCheck2">
+                    <label for="canalizacionAccesoVenosoCheck2">Canalización de acceso venoso</label>
+                    <select name="list_box" id="VVP">
+                        <option value="...">...</option>
+                        <option value="14G">14G</option>
+                        <option value="16G">16G</option>
+                        <option value="18G">18G</option>
+                        <option value="20G">20G</option>
+                        <option value="22G">22G</option>
+                        <option value="24G">24G</option>
+                        <option value="intraosea">Intraósea</option>
+                    </select>
+                    <select name="list_box" id="P_VVP">
+                        <option value="...">...</option>
+                        <option value="MSI">MSI</option>
+                        <option value="MSD">MSD</option>
+                        <option value="MII">MII</option>
+                        <option value="MID">MID</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="ecgCheck" name="ecgCheck">
+                    <label for="ecgCheck">ECG</label>
+                    <select name="list_box" id="ecg">
+                        <option value="...">...</option>
+                        <option value="Ritmo sinusal">Ritmo sinusal</option>
+                        <option value="Taquicardia sinusal">Taquicardia sinusal</option>
+                        <option value="Bradicardia sinusal">Bradicardia sinusal</option>
+                        <option value="Fibrilación auricular">Fibrilación auricular</option>
+                        <option value="Flutter auricular">Flutter auricular</option>
+                        <option value="Taquicardia supraventricular">Taquicardia supraventricular</option>
+                        <option value="Taquicardia ventricular">Taquicardia ventricular</option>
+                        <option value="Fibrilación ventricular">Fibrilación ventricular</option>
+                        <option value="Ritmo idioventricular acelerado">Ritmo idioventricular acelerado</option>
+                        <option value="Bloqueo AV de 1º grado">Bloqueo AV de 1º grado</option>
+                        <option value="Bloqueo AV de 2º grado">Bloqueo AV de 2º grado</option>
+                        <option value="Bloqueo AV de 2º grado">Bloqueo AV de 2º grado</option>
+                        <option value="Bloqueo AV de 3º grado">Bloqueo AV de 3º grado</option>
+                        <option value="Ritmo de escape auricular">Ritmo de escape auricular</option>
+                        <option value="Ritmo de escape ventricular">Ritmo de escape ventricular</option>
+                        <option value="Extrasístole supraventricular">Extrasístole supraventricular</option>
+                        <option value="Extrasístole ventricular">Extrasístole ventricular</option>
+                        <option value="Ritmo juncional">Ritmo juncional</option>
+                        <option value="Taquicardia juncional">Taquicardia juncional</option>
+                        <option value="Ritmo de marcapasos">Ritmo de marcapasos </option>
+                        <option value="Bloqueo de rama izquierda">Bloqueo de rama izquierda</option>
+                        <option value="Bloqueo de rama derecha">Bloqueo de rama derecha</option>
+                        <option value="Preexcitación ventricular">Preexcitación ventricular</option>
+                        <option value="Ritmo bifásico">Ritmo bifásico</option>
+                        <option value="Taquicardia paroxística supraventricular">Taquicardia paroxística
+                            supraventricular
+                        </option>
+                        <option value="Asistolia">Asistolia</option>
+                        <option value="Bloqueo sinoauricular">Bloqueo sinoauricular</option>
+                        <option value="Ritmo de la unión AV">Ritmo de la unión AV</option>
+                        <option value="Bloqueo fascicular anterior izquierdo">Bloqueo fascicular anterior izquierdo
+                        </option>
+                        <option value="Bloqueo fascicular posterior izquierdo">Bloqueo fascicular posterior
+                            izquierdo
+                        </option>
+                    </select>
+
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="canalizacionAccesoEndovascularCentralCheck"
+                        name="canalizacionAccesoEndovascularCentralCheck">
+                    <label for="canalizacionAccesoEndovascularCentralCheck">Canalización de acceso endovascular
+                        central</label>
+
+                </div>
+
+                <div class="tecnicas">
+                    <input type="checkbox" id="cardioversionCheck" name="cardioversionCheck">
+                    <label for="cardioversionCheck">Cardioversión</label>
+                    <select name="list_box" id="cardioversion">
+                        <option value="...">...</option>
+                        <option value="farmacologica">Farmacológica</option>
+                        <option value="electrica">Eléctrica</option>
+                        <option value="ambas">Ambas</option>
+                    </select>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Material de movilización - Inmovilización utilizado</legend>
+                <div class="tecnicas">
+                    <input type="checkbox" id="collarinCervicalCheck" name="collarinCervicalCheck">
+                    <label for="collarinCervicalCheck">Collarín cervical</label>
+
+
+                    <input type="checkbox" id="inmovilizadorVertebralCheck" name="inmovilizadorVertebralCheck">
+                    <label for="inmovilizadorVertebralCheck">Inmovilizador vertebral</label>
+
+                </div>
+                <div class="tecnicas">
+                    <input type="checkbox" id="ferulaMSICheck" name="ferulaMSICheck">
+                    <label for="ferulaMSICheck">Férula MSI</label>
+                    <select name="list_box" id="ferula">
+                        <option value="...">...</option>
+                        <option value="vacio">Vacío</option>
+                        <option value="rigida">Rígida</option>
+                        <option value="hinchable">Hinchable</option>
+                    </select>
+
+
+                    <input type="checkbox" id="ferulaMSDCheck" name="ferulaMSDCheck">
+                    <label for="ferulaMSDCheck">Férula MSD</label>
+                    <select name="list_box" id="ferula">
+                        <option value="...">...</option>
+                        <option value="vacio">Vacío</option>
+                        <option value="rigida">Rígida</option>
+                        <option value="hinchable">Hinchable</option>
+                    </select>
+
+                </div>
+                <div class="tecnicas">
+                    <input type="checkbox" id="ferulaMIICheck" name="ferulaMIICheck">
+                    <label for="ferulaMIICheck">Férula MII</label>
+                    <select name="list_box" id="ferula">
+                        <option value="...">...</option>
+                        <option value="vacio">Vacío</option>
+                        <option value="rigida">Rígida</option>
+                        <option value="hinchable">Hinchable</option>
+                    </select>
+
+
+                    <input type="checkbox" id="ferulaMIDCheck" name="ferulaMIDCheck">
+                    <label for="ferulaMIDCheck">Férula MID</label>
+                    <select name="list_box" id="ferula">
+                        <option value="...">...</option>
+                        <option value="vacio">Vacío</option>
+                        <option value="rigida">Rígida</option>
+                        <option value="hinchable">Hinchable</option>
+                    </select>
+
+                </div>
+                <div class="tecnicas">
+
+                    <input type="checkbox" id="tableroEspinalCheck" name="tableroEspinalCheck">
+                    <label for="tableroEspinalCheck">Tablero espinal</label>
+
+
+                    <input type="checkbox" id="camillaCucharaCheck" name="camillaCucharaCheck">
+                    <label for="camillaCucharaCheck">Camilla cuchara</label>
+
+                </div>
+                <div class="tecnicas">
+
+                    <input type="checkbox" id="cinchasAranaCheck" name="cinchasAranaCheck">
+                    <label for="cinchasAranaCheck">Cinchas/Araña</label>
+
+
+                    <input type="checkbox" id="colchonDeVacioCheck" name="colchonDeVacioCheck">
+                    <label for="colchonDeVacioCheck">Colchón de vacío</label>
+
+                </div>
+                <div class="tecnicas">
+
+                    <input type="checkbox" id="dispositivoKendrickCheck" name="dispositivoKendrickCheck">
+                    <label for="dispositivoKendrickCheck">Dispositivo Kendrick</label>
+
+                </div>
+                <div class="tecnicas">
+                    <input type="checkbox" id="sillaEVACCheck" name="sillaEVACCheck">
+                    <label for="sillaEVACCheck">Silla EVAC</label>
+
+
+                    <input type="checkbox" id="lonaCheck" name="lonaCheck">
+                    <label for="lonaCheck">Lona</label>
+
+                </div>
+            </fieldset>
+
+        </section>
+
+
+
+        <section id="medicacion">
+            <fieldset class="caja_tecnicas_realizadas">
+                <legend>Medicación administrada</legend><!--Apertura caja de medicaciones-->
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento1" type="text" name="medicamento" placeholder="Principio activo">
+
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento2" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento3" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento4" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento5" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento6" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento7" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento8" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento9" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+                <div class="autocomplete">
+                    <input type="time" placeholder="Hora">
+                    <input id="medicamento10" type="text" name="medicamento" placeholder="Principio activo">
+                    <input type="number" placeholder="Dosis">
+                    <select name="list_box" id="dosis">
+                        <option value="...">...</option>
+                        <option value="mcg">mcg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                    <select name="list_box" id="administración">
+                        <option value="...">...</option>
+                        <option value="IV">IV</option>
+                        <option value="IM">IM</option>
+                        <option value="SC">SC</option>
+                        <option value="IO">IO</option>
+                        <option value="VO">VO</option>
+                        <option value="Intranasal">Intranasal</option>
+                        <option value="Nebul.">Nebul.</option>
+                        <option value="Tópica">Tópica</option>
+                    </select>
+                    <input id="firma1" type="checkbox" name="firma"><label for="firma1">Firma facultativa</label>
+                </div>
+            </fieldset><!--Cierre de caja de medicacion administrada-->
+        </section>
+
+        <footer>
+            <label for="">Autonomía</label>
+            <label for="">Beneficencia</label>
+            <label for="">No maleficencia</label>
+            <label for="">Justicia</label>
+            <label for="">Confidencialidad</label>
+            <label for="">Respeto por la dignidad</label>
+            <label for="">Responsabilidad profesional</label>
+
+        </footer>
+        <script src="Valoracion1.3.js"></script>
+    </section>
+</body>
+
+</html>

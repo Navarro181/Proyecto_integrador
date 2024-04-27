@@ -1,0 +1,43 @@
+
+.caja_primaria{
+    width: 80%;
+    display: inline-block;
+
+}
+.caja_secundaria{
+display: flex;
+align-items:center;
+
+}
+
+.caja_respuesta_signos_sintomas{
+
+    width: 100px;
+}
+.caja_preguntas{
+
+    width: auto;
+
+}
+.caja_tecnicas_realizadas{
+    width: auto;
+}
+ label{
+width: 100%;
+
+}
+[type=text]{
+    width: 100%;
+ align-items:center;
+}
+[type=number]{
+    width: 40px;
+
+}
+.tabla_constantes{
+    display: block;
+    background-color: red;
+}
+th{
+    background-color: antiquewhite;
+}

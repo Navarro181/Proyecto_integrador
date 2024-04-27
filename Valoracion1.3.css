@@ -1,0 +1,302 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(200px, 15%) 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar principal"
+        "footer footer";
+    height: 100vh;
+    background-color: #032f4c;
+
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Asegura que el html y body no tengan un ancho mayor que la pantalla */
+    overflow-x: hidden; /* Evita el desplazamiento lateral provocado por cualquier elemento fuera de los límites */
+ 
+}
+
+header {
+    grid-area: header;
+    background-color: #02475e; /* Color oscuro más suave */
+    color: #ffffff;
+    padding: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    border: 1px white solid;
+    border-radius: 4px;
+    
+}
+
+.sidebar, footer {
+    background-color: #032f4c; /* Un tono más oscuro para el sidebar y footer */
+    color: #ffffff;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px; /* Espacio entre botones */
+
+
+}
+
+.principal {
+    grid-area: principal;
+    background-color: #ffffff; /* Fondo claro para el área principal */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre secciones */
+
+    
+  
+  
+}
+
+footer {
+    margin-top: 2px;
+    grid-area: footer;
+    display: flex;
+    justify-content: space-around; /* O usa 'space-between' según prefieras */
+    align-items: center; /* Centra los ítems verticalmente si es necesario */
+    width: 100%; /* O el ancho que prefieras */
+    padding: 10px; 
+    border: 1px white solid;
+    border-radius: 4px;
+    background-color: #02475e;
+    padding: 10px
+}
+
+/* Botones y campos de formulario */
+button {
+    font: inherit; /* Asegurar que los campos hereden la fuente del body */
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados para un look más moderno */
+}
+input[type=text], select, textarea{
+    display: inline-block;
+    border-radius: 5px; /* Bordes redondeados para un look más moderno */
+
+}
+
+.sidebar button {
+    background-color: #02475e; /* Igual que el header para cohesión */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.sidebar button.active {
+    background-color: #1078a4; /* Color cuando está activo */
+    color: #ffffff;
+}
+
+.sidebar button:hover {
+    background-color: #036f9c; /* Un azul más claro para el hover */
+}
+
+/* Mejoras para la tabla */
+#datosPaciente {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#datosPaciente, #datosPaciente th, #datosPaciente td {
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#datosPaciente th {
+    background-color: #02475e; /* Verde más suave */
+    color: white;
+    text-align: center; /* Centrar los encabezados */
+}
+
+#datosPaciente td {
+    text-align: center; /* Centrar el contenido de las celdas */
+}
+
+#datosPaciente tr:nth-child(even) {
+    background-color: #f0f0f0; /* Un fondo más claro para las filas pares */
+}
+fieldset{
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* Estilos para inputs y labels dentro de las secciones para coherencia */
+.datosBasicos input, .datosPersonales input, .datosSanitarios input,
+.datosBasicos label, .datosPersonales label, .datosSanitarios label {
+   
+    display:inline-table;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 4px;
+    
+}
+legend{
+    border: 1px gray solid;
+font-weight: bold;
+background-color: white;
+    border-radius: 4px;
+}
+
+.cajaEnLinea{
+    display: flex;
+}
+.cajaEnLinea label{
+display:flex ;
+}
+.cajaEnLinea input{
+    width: auto;
+    padding: 0%;
+    margin-left: 0px;
+    gap: 0px;
+
+}
+
+.question-container {
+    border-bottom: #02475e solid 1px;
+
+    border-radius: 4px;
+
+}
+.Caja_autorrelleno{
+    border: 1px black solid;
+    border-radius: 4px;
+    background-color:#d2e1e7;
+    padding-left: 4px;
+}
+
+table {
+    width: 100%; /* Usa todo el ancho disponible */
+    max-width: 100%; /* No permite que la tabla exceda el ancho de la pantalla */
+    table-layout: fixed; /* Controla el ancho de las columnas */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes */
+}
+
+td, th {
+    padding: 8px; /* Ajusta el relleno dentro de las celdas para dar espacio al contenido */
+    text-align: left;
+    border: 1px solid #ccc; /* Añade bordes claros para definir bien cada celda */
+    box-sizing: border-box; /* Incluye el padding y el border en el cálculo del ancho */
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%; /* Hace que los inputs usen todo el ancho de la celda */
+    box-sizing: border-box; /* Incluye el padding y el border en el cálculo del ancho del input */
+    border: 1px solid #ccc; /* Estilo para el borde del input */
+    padding: 4px; /* Padding interno para no pegar el texto a los bordes */
+    margin: 2px 0; /* Añade un pequeño margen vertical para separar los inputs de los bordes de la celda */
+}
+
+
+
+
+
+/*Inicio responsive */
+@media (max-width: 768px) {
+    footer {
+        display: none; /* Hide the footer on mobile */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width to align with the screen */
+        background-color: #f4f4f4; /* Background color for visibility */
+        padding: 10px 0; /* Padding for aesthetic spacing */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow for depth perception */
+        order: 3; /* Ensures sidebar is placed at the end */
+    }
+
+    #principal {
+        width: 100%; /* Full width of the screen */
+        min-height: 100vh; /* Minimum height to cover the viewport height */
+        padding-bottom: 50px; /* Padding to separate from the sidebar */
+        order: 2; /* Ensures content is placed before the sidebar */
+    }
+
+    header {
+        width: 100%; /* Full width of the header */
+        order: 1; /* Header is the first element */
+        position: relative; /* Positioning relative to its normal position */
+    }
+
+    body {
+        display: flex;
+        flex-direction: column; /* Elements stack vertically */
+        margin: 0; /* Remove default margin */
+        height: auto; /* Height set to auto to contain all elements */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+        overflow-y: auto; /* Allow vertical scrolling */
+    }
+  /* Añade el CSS existente de Valoracion1.3.css aquí para evitar duplicación */
+
+@media screen and (max-width: 600px) {
+    /* Hacer que la tabla sea un bloque que pueda desplazarse verticalmente */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Esconder los encabezados de la tabla en la vista móvil */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+        /* Cada celda es un bloque y toma todo el ancho de la tabla */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    td:before {
+        /* Usar el contenido del encabezado de la columna para etiquetas */
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Etiquetas para cada celda según su posición en el encabezado */
+    td:nth-of-type(1):before { content: "Hora"; }
+    td:nth-of-type(2):before { content: "FC"; }
+    td:nth-of-type(3):before { content: "SatO2"; }
+    td:nth-of-type(4):before { content: "TAS"; }
+    td:nth-of-type(5):before { content: "TAD"; }
+    td:nth-of-type(6):before { content: "TAM"; }
+    td:nth-of-type(7):before { content: "Glucemia"; }
+    td:nth-of-type(8):before { content: "Capnografía"; }
+    td:nth-of-type(9):before { content: "Temperatura"; }
+
+    /* Estilo específico para todas las celdas 'Hora' en cada fila */
+    td:nth-of-type(1) {
+        background-color: #f0f0f0; /* Color gris claro para el fondo */
+        color: #333; /* Color de texto más oscuro para mejor contraste */
+    }
+}
+
+}
+
+/* This ensures the sidebar, header, and principal are in the correct order */
+
+

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valoración sanitaria</title>
+  <link rel="stylesheet" href="valoracion1.0.css">
+</head>
+<nav>
+  <ul>
+    <span><img src="Imagenes/Logo_home.png" alt=""></span>
+    <span><img src="Imagenes/Icono_informes.png" alt=""></span>
+    <span><img src="Imagenes/logo_revision_mecanica.png" alt=""></span>
+
+  </ul>
+</nav>
+
+<body>
+  <nav class="tabs_ABCDE">
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_1" checked>
+    <label for="tab_ABCDE_1" class="tabs__label">Datos personales</label>
+    <div class="tabs__content">
+      <div class="container">
+        <form action="#">
+          <div class="user-details">
+            <div class="input-box">
+              <fieldset>
+                <legend>Datos básicos del paciente</legend>
+                <fieldset>
+                  <legend>Datos geográficos</legend>
+                  <span class="details">Lugar de atención</span>
+                  <div>
+                    <input class="text" type="text" placeholder="Ubicación actual">
+                  </div>
+                  <div>
+                    <span class="details">Localidad de atención</span>
+                    <input class="text" type="text" placeholder="Localidad actual">
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Datos personales</legend>
+                  <span class="details">Nombre y apellidos</span>
+
+                  <input class="text" type="text" placeholder="Nombre y apellidos del paciente">
+
+                  <div>
+                    <select name="ciudad" id="ciudad">
+                      <option value="dni">DNI</option>
+                      <option value="pasaporte">Pasaporte</option>
+                      <option value="otro">Otro</option>
+                      <option value="no">No dispone</option>
+                    </select>
+                    <input class="text" type="text" placeholder="Nº de identificación">
+                  </div>
+                  <div>
+                    <span class="details">Telefono</span>
+                    <input class="text" type="text" placeholder="Nº de contacto">
+                  </div>
+                  <div>
+                    <span class="details">Domicilio</span>
+                    <input class="text" type="text" placeholder="Dirección del paciente">
+                  </div>
+
+                  <div>
+                    <span class="details">Genero</span>
+                    <div>
+                      <input type="radio" name="genero" value="hombre" class="detalles_genero">Hombre
+                      <input type="radio" name="genero" value="mujer" class="detalles_genero">Mujer
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Datos sanitarios</legend>
+                  <div>
+                    <span class="details">Antecedentes personales</span>
+                    <input class="text" type="text" placeholder="Patologías relevantes previas">
+                  </div>
+                  <div>
+                    <span class="details">Alergias</span>
+                    <input class="text" type="text" placeholder="Alergias/intolerancias">
+                  </div>
+                  <div>
+                    <span class="details">Motivo de consulta</span>
+                    <input class="text" type="text" placeholder="¿Qué es lo que ha sucedido?">
+                  </div>
+                  <div>
+                    <span class="details">Tiempo de evolución</span>
+                    <input class="text" type="text" placeholder="¿Tiempo desde que se instauraron los sintomas?">
+                  </div>
+
+            </div>
+            <div class="button">
+              <input type="submit" value="Continuar">
+
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+    </fieldset>
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_2">
+    <label for="tab_ABCDE_2" class="tabs__label">A - Vía aérea</label>
+    <div class="tabs__content">
+      <div class="container">
+        <form action="#">
+          <div class="user-details">
+            <fieldset class="patron_alterado">
+              <legend>A - Vía aérea</legend>
+              <fieldset class="cuadro_valoracion">
+                <legend>¿El patrón se encuentra alterado?</legend>
+
+                <div>
+                  <input type="radio" name="Patron_alterado1" value="si" class="Patron_alterado1">Sí
+                  <input type="radio" name="Patron_alterado1" value="no" class="Patron_alterado1">No
+                </div>
+              </fieldset>
+              <div class="input-box">
+                <fieldset class="cuadro_valoracion">
+                  <legend>Valoración</legend>
+
+                  <span class="details">¿La vía aérea se encuentra permeable?</span>
+                  <div>
+                    <input type="radio" name="A_S1" value="si" class="A_S1">Sí
+                    <input type="radio" name="A_S1" value="no" class="A_S1">No
+                  </div>
+
+                  <span class="details">¿Se sospecha lesión cervical?</span>
+                  <div>
+                    <input type="radio" name="A_S2" value="si" class="A_S2">Sí
+                    <input type="radio" name="A_S2" value="no" class="A_S2">No
+                  </div>
+                </fieldset>
+                <fieldset class="cuadro_valoracion">
+
+                  <legend>Técnicas realizadas</legend>
+                  <div>
+                    <div>
+                      <input type="checkbox" name="A_TR_1" id="A_TR_1"> <label for="A_TR_1">Collarín cervical</label>
+                      <input type="checkbox" name="A_TR_2" id="A_TR_2"><label for="A_TR_2">Inmovilización
+                        vertebral</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="A_TR_3" id="A_TR_3"><label for="A_TR_3">Canula orofaríngea</label>
+                      <input type="checkbox" name="A_TR_4" id="A_TR_4"><label for="A_TR_4">Mascarilla laríngea</label>
+                      <input type="checkbox" name="A_TR_5" id="A_TR_5"><label for="A_TR_5">Intubación
+                        orotraqueal</label>
+                      <div> <input type="checkbox" name="A_TR_6" id="A_TR_6"><label for="A_TR_6">Extracción de cuerpo
+                          extraño</label></div>
+                      <div> <input type="checkbox" name="A_TR_7" id="A_TR_7"><label for="A_TR_7">Aspiración de
+                          secreciones</label></div>
+                    </div>
+
+                </fieldset>
+
+              </div>
+
+              <div class="button">
+                <input type="submit" value="Continuar">
+            </fieldset>
+          </div>
+      </div>
+      </form>
+    </div>
+
+    </div>
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_3">
+    <label for="tab_ABCDE_3" class="tabs__label">B - Respiratorio</label>
+    <div class="tabs__content">
+      <div class="container">
+        <form action="#">
+          <div class="user-details">
+            <fieldset class="patron_alterado">
+              <legend>B - Respiratorio</legend>
+              <fieldset class="cuadro_valoracion">
+                <legend>¿El patrón se encuentra alterado?</legend>
+
+                <div>
+                  <input type="radio" name="Patron_alterado1" value="si" class="Patron_alterado1" id="B_PA_SI"><label
+                    for="B_PA_SI">Sí</label>
+                  <input type="radio" name="Patron_alterado1" value="no" class="Patron_alterado1" id="B_PA_NO"><label
+                    for="B_PA_NO">No</label>
+                </div>
+              </fieldset>
+              <div class="input-box">
+                <fieldset class="cuadro_valoracion">
+                  <legend>Valoración</legend>
+                  <fieldset class="cuadro_valoracion_normal">
+                    <div><input type="radio" name="B_V1" value="Eupnea" class="B_V1" id="B_V1"><label
+                        for="B_V1">Eupnea</label></div>
+                    <div><input type="radio" name="B_V1" value="Normocoloreado" class="B_V2" id="B_V4"><label
+                        for="B_V4">Normocoloreado</label></div>
+                  </fieldset>
+                  <fieldset class="cuadro_valoracion_patológico">
+                    <div>
+                      <input type="radio" name="B_V1" value="Taquipnea" class="B_V1" id="B_V2"><label
+                        for="B_V2">Taquipnea</label>
+                      <input type="radio" name="B_V1" value="Bradipnea" class="B_V1" id="B_V3"><label
+                        for="B_V3">Bradipnea</label>
+                    </div>
+                    <div>
+                      <input type="radio" name="B_V1" value="Cianosis periférica" class="B_V2" id="B_V5"><label
+                        for="B_V5">Cianosis periférica</label>
+                      <input type="radio" name="B_V1" value="Cianosis central" class="B_V2" id="B_V6"><label
+                        for="B_V6">Cianosis central</label>
+                    </div>
+                  </fieldset>
+
+
+                </fieldset>
+                <fieldset class="cuadro_valoracion">
+
+                  <legend>Técnicas realizadas</legend>
+                  <div>
+                    <div>
+                      <input type="checkbox" name="B_TR_1" id="B_TR_1"> <label for="B_TR_1">Collarín cervical</label>
+                      <input type="checkbox" name="B_TR_2" id="B_TR_2"><label for="B_TR_2">Inmovilización
+                        vertebral</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="B_TR_3" id="B_TR_3"><label for="B_TR_3">Canula orofaríngea</label>
+                      <input type="checkbox" name="B_TR_4" id="B_TR_4"><label for="B_TR_4">Mascarilla laríngea</label>
+                      <input type="checkbox" name="B_TR_5" id="B_TR_5"><label for="B_TR_5">Intubación
+                        orotraqueal</label>
+                      <div> <input type="checkbox" name="B_TR_6" id="B_TR_6"><label for="B_TR_6">Extracción de cuerpo
+                          extraño</label></div>
+                      <div> <input type="checkbox" name="B_TR_7" id="B_TR_7"><label for="B_TR_7">Aspiración de
+                          secreciones</label></div>
+                    </div>
+
+                </fieldset>
+
+              </div>
+
+              <div class="button">
+                <input type="submit" value="Continuar">
+            </fieldset>
+          </div>
+      </div>
+      </form>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_4">
+    <label for="tab_ABCDE_4" class="tabs__label">C - Circulatorio</label>
+    <div class="tabs__content">
+      content tab 4
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_5">
+    <label for="tab_ABCDE_5" class="tabs__label">D - Neurológico</label>
+    <div class="tabs__content">
+      content tab 5
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_6">
+    <label for="tab_ABCDE_6" class="tabs__label">E - Exploración fisica</label>
+    <div class="tabs__content">
+      content tab 6
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_7">
+    <label for="tab_ABCDE_7" class="tabs__label">Técnicas realizadas</label>
+    <div class="tabs__content">
+      content tab 7
+    </div>
+
+    <input type="radio" class="tabs__radio" name="tab_valoracion" id="tab_ABCDE_8">
+    <label for="tab_ABCDE_8" class="tabs__label">Incidencias</label>
+    <div class="tabs__content">
+      content tab 8
+    </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

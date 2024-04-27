@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.tabs_ABCDE {
+
+    padding: 5px;
+    padding-bottom: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 330px;
+    font-family: sans-serif;
+    border: 2px solid;
+    border-radius: 5px;
+    width: 200px;
+    
+
+}
+
+
+.tabs__label {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tabs__radio {
+    display: none;
+}
+
+.tabs__content {
+    margin-left: 20px;
+    order: 1;
+    line-height: 1.5;
+    display: none;
+    border:none;
+
+
+}
+
+.tabs__radio:checked+.tabs__label {
+    font-weight: bold;
+    color: black(1, 1, 98);
+    border-bottom: 2px solid #000000;
+    border-top: 2px solid #000000;
+    background-color: rgb(249, 212, 198);
+    border-radius: 5px;
+    width: 100%;
+}
+
+.tabs__radio:checked+.tabs__label+.tabs__content {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+fieldset {
+    padding: 0px 10px 10px 10px;
+    border-color: #000000;
+    border-radius: 5px;
+    width: 300px;
+
+
+}
+
+fieldset legend {
+    font-size: 18PX;
+    color: RED;
+
+}
+
+body {
+
+    color: black;
+    justify-content: left;
+    align-items: left;
+    padding: 10px 10px;
+    background: linear-gradient(135deg, white, white);
+
+    
+}
+
+
+form .user-details .input-box {
+    margin-bottom: 15px;
+    height: auto;
+   width: 100%;
+   
+
+}
+
+.user-details .input-box .details {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 18px;
+
+
+
+}
+
+.patron_alterado{
+    display: flex;
+    flex-direction: column;
+    width: 1000PX;
+}
+
+
+.cuadro_valoracion{
+    width: auto;
+    display: flex;
+    height: auto;
+
+}
+.cuadro_valoracion_normal{
+width: auto;
+}
+
+form .button {
+    height: 45px;
+    margin: 45px, 0;
+    width: 100%;
+
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+}
+.text{
+  width: 100%;
+}
+
+@media (max-width:584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+
+    }
+
+    form .categoria_genero {
+        width: 100%;
+    }
+
+    .container form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+}

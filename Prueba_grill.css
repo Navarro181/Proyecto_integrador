@@ -1,0 +1,63 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.contenedor{
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    grid-template-rows: fit-content 1fr 1fr;
+    grid-template-areas: 
+    "header header"
+    "aside principal"
+    "footer footer"
+    ;
+}
+.header{
+    grid-area: header;
+    background-color:rgb(42, 165, 130);
+    height: ;
+}
+.aside{
+    grid-area: aside;
+    background-color: rgb(62, 12, 109);
+}
+.principal{
+    grid-area: principal;
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr;
+    grid-template-rows: fit-content 1fr;
+    grid-template-areas: 
+    "respuestas preguntas preguntas"
+    "tecnicas_realizadas tecnicas_realizadas tecnicas_realizadas"
+    ;
+}
+.respuestas{
+    grid-area: respuestas;
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(161, 161, 115);
+   min-width: 20px;
+
+}
+
+.preguntas{
+    grid-area: preguntas;
+    display:flex;
+    flex-direction: column;
+    background-color:aqua;
+    min-width: 70px;
+
+
+}
+.tecnicas_realizadas{
+    grid-area: tecnicas_realizadas;
+    background-color: blue;
+}
+
+
+.footer{
+    grid-area: footer;
+    background-color: cornflowerblue;
+    text-align: center;
+    height: fit-content;
+}
