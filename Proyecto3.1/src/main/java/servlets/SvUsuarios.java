@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import logica.Controladora;
 
 
 
@@ -15,6 +16,8 @@ import java.io.IOException;
  */
 @WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
 public class SvUsuarios extends HttpServlet {
+            
+    Controladora control=new Controladora();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,6 +34,16 @@ public class SvUsuarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+                
+        String nombreUsuario=request.getParameter("nombreusu");
+        String rol=request.getParameter("rol");
+        String contrasenia=request.getParameter("contrasenia");
+        
+        //System.out.println("El nombre del usuario es: "+nombreUsuario);
+  
+       control.crearUsuario(nombreUsuario,rol,contrasenia);
+  
+        response.sendRedirect("index.jsp");
     }
 
     @Override

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-  <!-- Define Persistence Unit -->
-  <persistence-unit name="Vetermascotas_PU">
-    <class>java.Administrativo</class>
-    <class>java.Horario</class>
-    <class>java.Mascota</class>
-    <class>java.Persona</class>
-    <class>java.Responsable</class>
-    <class>java.Turno</class>
-    <class>java.Usuario</class>
-    <class>java.Veterinario</class>
-  </persistence-unit>
-  <persistence-unit name="Veteranaria_PU" transaction-type="RESOURCE_LOCAL">
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="Vetermascotas_PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>logica.Administrativo</class>
+    <class>logica.Horario</class>
+    <class>logica.Mascota</class>
+    <class>logica.Persona</class>
+    <class>logica.Responsable</class>
+    <class>logica.Turno</class>
+    <class>logica.Usuario</class>
+    <class>logica.Veterinario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/vetermascotas?serverTimezone=UTC"/>
