@@ -1,10 +1,10 @@
 package logica;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -20,8 +20,10 @@ public class Mascota extends Persona implements Serializable{
     private Date fecha_nacimiento;
     private String raza;
     private String especie;  
+    
     @OneToOne
     private Responsable unResponsable;
+    
     @OneToMany (mappedBy="pacien")
     private List<Turno>listaTurnos;
     

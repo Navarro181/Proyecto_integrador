@@ -53,7 +53,7 @@
                 <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Acciones:</h6>
-                        <a class="collapse-item" href="XXX">Ver usuarios</a>
+                        <a class="collapse-item" href="SvUsuarios">Ver usuarios</a>
                         <a class="collapse-item" href="altaUsuario.jsp">Alta usuario</a>
                     </div>
                 </div>

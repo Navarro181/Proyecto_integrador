@@ -1,5 +1,6 @@
 package logica;
 
+import java.util.List;
 import persistencia.ControladoraPersistencia;
 
 
@@ -24,12 +25,17 @@ public class Controladora {
         usu.setNombreUsuario(nombreUsuario);        
         usu.setRol(rol);
         usu.setContrasenia(contrasenia);
-        //System.out.println("Controladora: Setea los datos en Usuario");
+        System.out.println("Controladora: Setea los datos en Usuario");
 
         controladoraPersis.crearUsuario(usu);
         
         //System.out.println("Controladora: Se comunica pasa los datos a controladora persistencia");
 
+    }
+    public List<Usuario> getUsuarios(){
+        
+        return controladoraPersis.getUsuarios();
+        
     }
 
 }

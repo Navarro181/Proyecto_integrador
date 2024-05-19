@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.util.ArrayList;
+import java.util.List;
 import logica.Usuario;
 
 /**
@@ -8,11 +10,20 @@ import logica.Usuario;
  */
 public class ControladoraPersistencia {
 
-    
-    public void crearUsuario(Usuario usuario){
-        //System.out.println("ControladoraPersistencia: Crea el usuario");
         UsuarioJpaController usuJPA=new UsuarioJpaController();
-       // System.out.println("ControladoraPersistencia: Se inserta el usuario en la BBDD");
+
+  
+    public void crearUsuario(Usuario usuario){
+
+        System.out.println("ControladoraPersistencia: Crea el usuario"); 
+
         usuJPA.create(usuario);
+        System.out.println("ControladoraPersistencia: Se inserta el usuario en la BBDD");
+    }
+
+
+    public List<Usuario> getUsuarios() {
+        return usuJPA.findUsuarioEntities();
+
     }
 }

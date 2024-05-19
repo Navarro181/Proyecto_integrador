@@ -1,16 +1,17 @@
 package logica;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.io.Serializable;
-import java.sql.Time;
-import java.util.Date;
+
+        
+
 
 /**
  *
@@ -22,10 +23,8 @@ public class Turno implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id_turno;
-    @Temporal(TemporalType.DATE)
-    private Date fecha_turno;
-    @Temporal(TemporalType.TIME)
-    private Time Hora_turno;
+    private String fecha_turno;
+    private String Hora_turno;
     private String Motivo_consulta;
     @ManyToOne
     @JoinColumn(name="vet")
@@ -37,7 +36,7 @@ public class Turno implements Serializable {
     public Turno() {
     }
 
-    public Turno(int id_turno, Date fecha_turno, Time Hora_turno, String Motivo_consulta, Veterinario vet, Mascota pacien) {
+    public Turno(int id_turno, String fecha_turno, String Hora_turno, String Motivo_consulta, Veterinario vet, Mascota pacien) {
         this.id_turno = id_turno;
         this.fecha_turno = fecha_turno;
         this.Hora_turno = Hora_turno;
@@ -54,19 +53,19 @@ public class Turno implements Serializable {
         this.id_turno = id_turno;
     }
 
-    public Date getFecha_turno() {
+    public String getFecha_turno() {
         return fecha_turno;
     }
 
-    public void setFecha_turno(Date fecha_turno) {
+    public void setFecha_turno(String fecha_turno) {
         this.fecha_turno = fecha_turno;
     }
 
-    public Time getHora_turno() {
+    public String getHora_turno() {
         return Hora_turno;
     }
 
-    public void setHora_turno(Time Hora_turno) {
+    public void setHora_turno(String Hora_turno) {
         this.Hora_turno = Hora_turno;
     }
 
