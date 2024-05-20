@@ -37,12 +37,12 @@ public class Usuario implements Serializable {
     
     
 
-    public int getId_usuasio() {
+    public int getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuasio(int id_usuasio) {
-        this.id_usuario = id_usuasio;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getNombreUsuario() {

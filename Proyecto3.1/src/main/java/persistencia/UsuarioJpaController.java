@@ -60,7 +60,7 @@ public class UsuarioJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                int id = usuario.getId_usuasio();
+                int id = usuario.getId_usuario();
                 if (findUsuario(id) == null) {
                     throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.");
                 }
@@ -81,7 +81,7 @@ public class UsuarioJpaController implements Serializable {
             Usuario usuario;
             try {
                 usuario = em.getReference(Usuario.class, id);
-                usuario.getId_usuasio();
+                usuario.getId_usuario();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The usuario with id " + id + " no longer exists.", enfe);
             }
