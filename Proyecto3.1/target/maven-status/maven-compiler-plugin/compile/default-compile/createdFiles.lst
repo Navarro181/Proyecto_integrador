@@ -6,6 +6,7 @@ logica\Turno.class
 persistencia\UsuarioJpaController.class
 logica\Administrativo.class
 persistencia\ResponsableJpaController.class
+servlets\SvElimUsuarios.class
 logica\Turno_.class
 persistencia\exceptions\PreexistingEntityException.class
 persistencia\ControladoraPersistencia.class

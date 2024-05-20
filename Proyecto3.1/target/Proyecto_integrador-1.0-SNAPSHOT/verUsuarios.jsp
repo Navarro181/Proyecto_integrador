@@ -56,7 +56,7 @@
                                             <td><%=usuario.getRol()%> </td>
                                             
                                             <td style="display: flex; width: 230px;">
-                                                <form name="eliminar" action="SvElimUsuarios" method="post">
+                                                <form name="eliminar" action="SvElimUsuarios" method="POST">
                                                     <button type="submit" class="btn btn-primary btn-user btn-block" style="background: #e02d1b;margin-right: 5px;"> 
                                                         <i class="fas fa-trash-alt"></i>Eliminar
                                                     </button>

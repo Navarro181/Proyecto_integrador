@@ -38,4 +38,12 @@ public class Controladora {
         
     }
 
+    public void borrarUsuario(int id) {
+        controladoraPersis.borrarUsuario(id);
+
+
+
+
+    }
+
 }
