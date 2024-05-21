@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Componentes/header.jsp"%>
 <%@include file="Componentes/body.jsp" %>
-<h1>Alta usuarios</h1>
+<h1 class="h3 mb-2 text-gray-800">Alta de usuarios</h1>
 
 <form class="user" action="SvUsuarios" method="Post">
     <div class="form-group col">

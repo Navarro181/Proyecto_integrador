@@ -46,4 +46,15 @@ public class Controladora {
 
     }
 
+    public Usuario traerUsuario(int id) {
+        
+        return controladoraPersis.traerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usu) {
+        controladoraPersis.editarUsuario(usu);
+        
+    }
+
+
 }

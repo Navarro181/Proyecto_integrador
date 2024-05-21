@@ -1,4 +1,5 @@
 logica\Usuario.class
+servlets\SvEditUsuarios.class
 logica\Mascota_.class
 logica\Persona.class
 logica\Veterinario_.class

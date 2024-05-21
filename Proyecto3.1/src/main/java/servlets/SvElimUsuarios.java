@@ -43,6 +43,8 @@ public class SvElimUsuarios extends HttpServlet {
         int id=Integer.parseInt(request.getParameter("id"));
         control.borrarUsuario(id);
         
+        response.sendRedirect("SvUsuarios");
+        
     }
 
 
