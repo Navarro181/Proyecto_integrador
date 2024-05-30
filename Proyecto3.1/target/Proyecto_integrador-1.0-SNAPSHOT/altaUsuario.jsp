@@ -13,15 +13,15 @@
     <div class="form-group col">
         <div class="col-sm-12 mb-3">
             <input type="text" class="form-control form-control-user" id="nombreusu" name="nombreusu"
-                   placeholder="Nombre usuario">
+                   placeholder="Nombre usuario" required>
         </div>
         <div class="col-sm-12 mb-3">
             <input type="text" class="form-control form-control-user" id="rol" name="rol"
-                   placeholder="Rol">
+                   placeholder="Rol" required>
         </div>
         <div class="col-sm-12 mb-3">
             <input type="password" class="form-control form-control-user" id="contrasenia" name="contrasenia"
-                   placeholder="Contraseña">
+                   placeholder="Contraseña" required>
         </div>
       
 

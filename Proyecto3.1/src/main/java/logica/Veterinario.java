@@ -1,4 +1,3 @@
-
 package logica;
 
 import javax.persistence.Entity;
@@ -61,6 +60,10 @@ public class Veterinario extends Persona{
 
     public void setUnHorario(Horario unHorario) {
         this.unHorario = unHorario;
+    }
+
+    void setApellido() {
+
     }
 
 

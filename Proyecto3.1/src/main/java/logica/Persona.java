@@ -1,4 +1,3 @@
-
 package logica;
 
 import javax.persistence.Entity;

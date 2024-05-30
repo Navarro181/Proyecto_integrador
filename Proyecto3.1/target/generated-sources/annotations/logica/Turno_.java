@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import logica.Mascota;
 import logica.Veterinario;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-05-21T21:12:43", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-05-30T19:23:22", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Turno.class)
 public class Turno_ { 
 

@@ -7,7 +7,9 @@ logica\Turno.class
 persistencia\UsuarioJpaController.class
 logica\Administrativo.class
 persistencia\ResponsableJpaController.class
+servlets\SvPaciente.class
 servlets\SvElimUsuarios.class
+servlets\SvVet.class
 logica\Turno_.class
 persistencia\exceptions\PreexistingEntityException.class
 persistencia\ControladoraPersistencia.class
@@ -15,6 +17,7 @@ persistencia\exceptions\IllegalOrphanException.class
 persistencia\MascotaJpaController.class
 logica\Responsable_.class
 persistencia\VeterinarioJpaController.class
+servlets\SvLogin.class
 persistencia\HorarioJpaController.class
 logica\Horario.class
 logica\Controladora.class

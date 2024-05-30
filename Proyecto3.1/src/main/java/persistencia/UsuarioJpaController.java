@@ -1,4 +1,3 @@
-
 package persistencia;
 
 import javax.persistence.EntityManager;
@@ -25,7 +24,6 @@ public class UsuarioJpaController implements Serializable {
         emf = Persistence.createEntityManagerFactory("Vetermascotas_PU");
 
     }
-    
 
     public UsuarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;

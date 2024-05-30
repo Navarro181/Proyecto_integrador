@@ -1,13 +1,12 @@
 package persistencia;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import logica.Mascota;
 import logica.Usuario;
+import logica.Veterinario;
 import persistencia.exceptions.NonexistentEntityException;
-
-
 /**
  *
  * @author Sergio
@@ -15,7 +14,8 @@ import persistencia.exceptions.NonexistentEntityException;
 public class ControladoraPersistencia {
 
         UsuarioJpaController usuJPA=new UsuarioJpaController();
-
+        VeterinarioJpaController vetJPA=new VeterinarioJpaController();  
+        MascotaJpaController pacJPA=new MascotaJpaController();
   
     public void crearUsuario(Usuario usuario){
 
@@ -28,7 +28,6 @@ public class ControladoraPersistencia {
 
     public List<Usuario> getUsuarios() {
         return usuJPA.findUsuarioEntities();
-
     }
     
     public void borrarUsuario(int id){
@@ -49,8 +48,17 @@ public class ControladoraPersistencia {
             } catch (Exception ex) {
                 Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
             }
+    }
 
+    public void crearVet(Veterinario vet) {
+        System.out.println("ControladoraPersistencia: Crea el veterinario"); 
 
+        vetJPA.create(vet);
+        System.out.println("ControladoraPersistencia: Se inserta el veterinario en la BBDD");    
     }
     
+    public void crearPac (Mascota pac){
+        pacJPA.create(pac);
+    }
 }
+    

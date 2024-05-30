@@ -13,13 +13,6 @@ import logica.Controladora;
 import logica.Usuario;
 
 
-
-
-
-
-
-
-
 /**
  *
  * @author Sergio

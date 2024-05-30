@@ -8,9 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
-import java.util.HashSet;
-import java.util.Set;
-
 import logica.Controladora;
 import logica.Usuario;
 

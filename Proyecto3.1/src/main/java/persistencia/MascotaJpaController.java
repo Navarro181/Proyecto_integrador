@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import logica.Turno;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Persistence;
 import logica.Mascota;
 import persistencia.exceptions.NonexistentEntityException;
 
@@ -19,7 +20,11 @@ import persistencia.exceptions.NonexistentEntityException;
  * @author Sergio
  */
 public class MascotaJpaController implements Serializable {
+    
+          public MascotaJpaController() {
+        emf = Persistence.createEntityManagerFactory("Vetermascotas_PU");
 
+    }
     public MascotaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

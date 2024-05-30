@@ -2,7 +2,6 @@ package logica;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.io.Serializable;
@@ -21,8 +20,7 @@ public class Mascota extends Persona implements Serializable{
     private String raza;
     private String especie;  
     
-    @OneToOne
-    private Responsable unResponsable;
+    private String responsable;
     
     @OneToMany (mappedBy="pacien")
     private List<Turno>listaTurnos;
@@ -31,13 +29,13 @@ public class Mascota extends Persona implements Serializable{
     public Mascota() {
     }
 
-    public Mascota(String nombre, Date fecha_nacimiento, String raza, String especie, Responsable unResponsable, List<Turno> listaTurnos, int id) {
+    public Mascota(String nombre, Date fecha_nacimiento, String raza, String especie, String responsable, List<Turno> listaTurnos, int id) {
         super(id);
         this.nombre = nombre;
         this.fecha_nacimiento = fecha_nacimiento;
         this.raza = raza;
         this.especie = especie;
-        this.unResponsable = unResponsable;
+        this.responsable = responsable;
         this.listaTurnos = listaTurnos;
     }
 
@@ -73,12 +71,12 @@ public class Mascota extends Persona implements Serializable{
         this.especie = especie;
     }
 
-    public Responsable getUnResponsable() {
-        return unResponsable;
+    public String getResponsable() {
+        return responsable;
     }
 
-    public void setUnResponsable(Responsable unResponsable) {
-        this.unResponsable = unResponsable;
+    public void setResponsable(String responsable) {
+        this.responsable = responsable;
     }
 
     public List<Turno> getListaTurnos() {
@@ -90,12 +88,14 @@ public class Mascota extends Persona implements Serializable{
     }
 
     public void add(Mascota mascota) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public void remove(Mascota mascota) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+
+
+
 
 
 

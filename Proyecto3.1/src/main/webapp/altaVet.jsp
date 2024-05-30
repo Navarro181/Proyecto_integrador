@@ -7,45 +7,45 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Componentes/header.jsp"%>
 <%@include file="Componentes/body.jsp" %>
-<h1>Alta veterinario</h1>
+<h1 class="h3 mb-2 text-gray-800">Alta veterinarios</h1>
 
-<form class="user">
+<form class="user" action="SvVet" method="Post">
     <div class="form-group row">
         <div class="col-sm-2 mb-3">
-            <input type="text" class="form-control form-control-user" id="dni"
-                   placeholder="DNI">
+            <input type="text" class="form-control form-control-user" id="dni" name="dni"
+                   placeholder="DNI" required>
         </div>
         <div class="col-sm-5 mb-3">
-            <input type="text" class="form-control form-control-user" id="nombre"
-                   placeholder="Nombre">
+            <input type="text" class="form-control form-control-user" id="nombre" name="nombre"
+                   placeholder="Nombre" required>
         </div>
         <div class="col-sm-5 mb-3">
-            <input type="text" class="form-control form-control-user" id="apellido"
-                   placeholder="Apellido">
+            <input type="text" class="form-control form-control-user" id="apellido" name="apellido"
+                   placeholder="Apellido" required>
         </div>
         <div class="col-sm-4 mb-3">
-            <input type="text" class="form-control form-control-user" id="telefono"
-                   placeholder="Telefóno">
+            <input type="text" class="form-control form-control-user" id="telefono" name="telefono"
+                   placeholder="Telefóno" required>
         </div>
                 <div class="col-sm-8 mb-3">
-            <input type="text" class="form-control form-control-user" id="correo"
-                   placeholder="Correo">
+            <input type="text" class="form-control form-control-user" id="correo" name="correo"
+                   placeholder="Correo" required>
         </div>    
         <div class="col-sm-12 mb-3">
-            <input type="text" class="form-control form-control-user" id="domicilio"
+            <input type="text" class="form-control form-control-user" id="direccion" name="direccion"
                    placeholder="Domicilio">
         </div>
                 <div class="col-sm-12 mb-3">
-            <input type="text" class="form-control form-control-user" id="especialidad"
-                   placeholder="Especialidad">
+            <input type="text" class="form-control form-control-user" id="especialidad" name="especialidad"
+                   placeholder="Especialidad" required>
         </div>       
 
  
     </div>
 
-    <a href="XXX" class="btn btn-primary btn-user btn-block">
-        Crear veterinario
-    </a>
+    <button class="btn btn-primary btn-user btn-block" type="submit">
+        Crear perfil
+    </button>
 
 </form>
 
