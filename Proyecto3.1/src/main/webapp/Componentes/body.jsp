@@ -10,9 +10,11 @@
     <!<!-- Validacion sesion -->
     <%HttpSession misession=request.getSession();
     String login=(String) request.getSession().getAttribute("usuario");
+
     if(login==null){
         response.sendRedirect("sinLogin.jsp");
         }
+        
     %>
 
     

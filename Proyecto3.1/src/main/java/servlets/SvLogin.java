@@ -18,6 +18,8 @@ import logica.Controladora;
 public class SvLogin extends HttpServlet {
 
         Controladora control=new Controladora();
+
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -34,15 +36,17 @@ public class SvLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usuario=request.getParameter("usuario");
-        String contrasenia=request.getParameter("contrasenia");        
+        String contrasenia=request.getParameter("contrasenia"); 
+        String rol=request.getParameter("rol");
         
         boolean validacion=false;
         validacion=control.comprobarIngreso(usuario,contrasenia);
         
         if(validacion==true){
             HttpSession misession=request.getSession(true);
-
             misession.setAttribute("usuario",usuario);
+
+            
             response.sendRedirect("index.jsp");
         }else{
             response.sendRedirect("loginError.jsp");

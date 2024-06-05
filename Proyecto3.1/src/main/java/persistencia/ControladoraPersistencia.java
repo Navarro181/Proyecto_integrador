@@ -51,10 +51,10 @@ public class ControladoraPersistencia {
     }
 
     public void crearVet(Veterinario vet) {
-        System.out.println("ControladoraPersistencia: Crea el veterinario"); 
+        //System.out.println("ControladoraPersistencia: Crea el veterinario"); 
 
         vetJPA.create(vet);
-        System.out.println("ControladoraPersistencia: Se inserta el veterinario en la BBDD");    
+        //System.out.println("ControladoraPersistencia: Se inserta el veterinario en la BBDD");    
     }
     
     public void crearPac (Mascota pac){

@@ -56,7 +56,7 @@ public class SvUsuarios extends HttpServlet {
         String rol=request.getParameter("rol");
         String contrasenia=request.getParameter("contrasenia");
         
-        System.out.println("El nombre del usuario es: "+nombreUsuario);
+        //System.out.println("El nombre del usuario es: "+nombreUsuario);
   
        control.crearUsuario(nombreUsuario,rol,contrasenia);
   
